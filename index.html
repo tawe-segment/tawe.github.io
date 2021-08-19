@@ -17,6 +17,7 @@
         function idFunction(id) {
             var userId = id.name;
             console.log(userId);
+            analytics.reset();
             analytics.identify(userId);
             analytics.page();
         }
