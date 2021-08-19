@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>Home Questionnaire!</title> 
 
     <!--Start Placeholder for Segment Snippet -->
@@ -12,7 +13,12 @@
     </script>
     <!--End Placeholder for Segment Snippet -->
     <!--Start hardcorded tracking code -->
-    
+    <script>
+        function idFunction(id) {
+            var userId = id.name;
+            console.log(userId);
+        }
+    </script>
     <script type="text/javascript">
           function identify(e){
             e.preventDefault();
@@ -27,7 +33,7 @@
                 destination: destination, 
                 details: details
             };
-            analytics.identify('1234', {
+            analytics.identify(userId, {
                 email: email, 
                 name: fullname
             });
@@ -39,25 +45,41 @@
     <!--End hardcoded tracking code -->
 
 </head> 
-<body> 
-<h1>What is your favorite place to travel?</h1> 
-<p>I am building a directory of the sweetest travel destinations.</p>  
-<form name="travel" onsubmit="identify(event)">
-     What is your favorite travel destination?
-    <input name="destination" required="" size="81" type="text"/> 
-    <br><br><br> 
-    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
-    <br><br> 
-    <textarea cols="81" name="details" required="" rows="10">
-    </textarea> 
-    <br><br> 
-    Name: <input name="fullname" required="" size="75" type="text"/> 
-    <br><br> 
-    Email: <input name="email" required="" size="75" type="email"/> 
-    <br><br>
-    <input name="submit" type="submit" value="submit"/>
-</form> 
-
+<body>
+    <div class="travel-form">
+        <h2>Identify & Trigger</h2>
+            <table style="width:100%">
+                <tr>
+                    <th>John Doe - JD1234</th>
+                    <th>Jane Austen - JA999</th> 
+                    <th>Jack Bean - JS5555</th>
+                    <th>Jill Stalk - JS911</th>
+                </tr>
+                <br>
+                    <td>john.doe@doe.comx<input type="button" class="idBtn" onclick="idFunction(this)" name="JD1234" value="Identify"></td>
+                    <td>jane.austen@wanabe.comx<input type="button" class="idBtn" onclick="idFunction(this)" name="JA999" value="Identify"></td>
+                    <td>jack.bean@beanstalk.yah<input type="button" class="idBtn" onclick="idFunction(this)" name="JS5555" value="Identify"></td>
+                    <td>jill.stalk@youknow.who<input type="button" class="idBtn" onclick="idFunction(this)" name="JS911" value="Identify"></td>
+                </tr>
+            </table>
+            <br><br>
+        <h2>What is your favorite place to travel?</h2> 
+        <p>I am building a directory of the sweetest travel destinations.</p>
+        <br><br>
+        <form name="travel" onsubmit="identify(event)">
+            <label for="destination">What is your favorite travel destination?<em>&#x2a;</em></label>
+                <input id="destination" name="destination" required="" type="text" />
+            <label for="details">Any recommendations?: <em>&#x2a;</em></label>
+                <textarea id="details" name="details" required="" rows="4"></textarea>
+                <h3>i.e cool things to do, places to visit or restaurants to eat?</h3>
+            <label for="fullname">Full Name <em>&#x2a;</em></label>
+                <input id="fullname" name="fullname" required="" type="text" />
+            <label for="email">Email <em>&#x2a;</em></label>
+                <input id="email" name="email" required="" type="email" />
+            <button id="submitForm">SUBMIT</button>
+        </form>
+    </div>
+    
     <!--Placeholder for identify and track script -->
 
 </body> 
