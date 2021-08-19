@@ -17,6 +17,10 @@
         function idFunction(id) {
             var userId = id.name;
             console.log(userId);
+            analytics.identify(userId, {
+                email: email, 
+                name: fullname
+            });
         }
     </script>
     <script type="text/javascript">
@@ -33,10 +37,6 @@
                 destination: destination, 
                 details: details
             };
-            analytics.identify(userId, {
-                email: email, 
-                name: fullname
-            });
             analytics.track('destination submitted', user, function() {
                 window.location.href = "";
             });
