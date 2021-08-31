@@ -59,8 +59,12 @@
                     city: 'San Francisco',
                     state: 'Ca',
                     postalCode: '94107'
-  }
-});
+                }
+            });
+            analytics.page();
+            analytics.track('Product Added', user, function() {
+            window.location.href = "";
+        });
         }
     </script>
     <!--End hardcoded fb identify -->
@@ -89,7 +93,7 @@
                     <td></td>
                     <td></td>
                     <!--<td></td>-->
-                    <td><input type="button" class="idBtn" onclick="fbIdentify()" name="JS911" value="FB Identify"></td>
+                    <td><input type="button" class="idBtn" onclick="fbIdentify()" name="JS911" value="FB AddToCart"></td>
                 </tr>
                 
             </table>
