@@ -68,6 +68,28 @@
         }
     </script>
     <!--End hardcoded fb identify -->
+    <!--Start hardcorded intercom identify -->
+    <script>
+        function intercomPage(){
+            // analytics.identify('TS000', {
+            //     name: 'Tobi Segment',
+            //     gender: 'Male',
+            //     email: 'tobi_XYZ@segment.com',
+            //     phone: '085-750-4370',
+            //     address: {
+            //         city: 'San Francisco',
+            //         state: 'Ca',
+            //         postalCode: '94107'
+            //     }
+            // });
+            analytics.page();
+        //     analytics.track('Page Viewed Test', function() {
+        //     window.location.href = "";
+        // });
+        }
+    </script>
+    <!--End hardcoded fb identify -->
+    
 
 </head> 
 <body>
@@ -93,7 +115,14 @@
                     <td></td>
                     <td></td>
                     <!--<td></td>-->
+                    <td><input type="button" class="idBtn" onclick="intercomPage()" name="JS911" value="IntercomPage"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
                     <td><input type="button" class="idBtn" onclick="fbIdentify()" name="JS911" value="FB AddToCart"></td>
+                    <!--<td></td>-->
+                    <td></td>
                 </tr>
                 
             </table>
