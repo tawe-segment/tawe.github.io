@@ -47,6 +47,23 @@
         }
     </script>
     <!--End hardcoded tracking code -->
+    <!--Start hardcorded fb identify -->
+    <script>
+        function fbIdentify(){
+            analytics.identify('TS000', {
+                name: 'Tobi Segment',
+                gender: 'Male',
+                email: 'XYZ@segment.com',
+                phone: '085-750-4370',
+                address: {
+                    city: 'San Francisco',
+                    state: 'Ca',
+                    postalCode: '94107'
+  }
+});
+        }
+    </script>
+    <!--End hardcoded fb identify -->
 
 </head> 
 <body>
@@ -57,22 +74,22 @@
                     <th>John Doe - JD1234</th>
                     <th>Jane Austen - JA999</th> 
                     <th>Jack Bean - JS5555</th>
-                    <th>Jill Stalk - JS911</th>
+                    <!--<th>Jill Stalk - JS911</th>-->
                     <th>Tobi Segment - TS000</th>
                 </tr>
                 <tr>
                     <td>john.doe@doe.comx<input type="button" class="idBtn" onclick="idFunction(this)" name="JD1234" value="Identify"></td>
                     <td>jane.austen@wanabe.comx<input type="button" class="idBtn" onclick="idFunction(this)" name="JA999" value="Identify"></td>
                     <td>jack.bean@beanstalk.yah<input type="button" class="idBtn" onclick="idFunction(this)" name="JS5555" value="Identify"></td>
-                    <td>jill.stalk@youknow.who<input type="button" class="idBtn" onclick="idFunction(this)" name="JS911" value="Identify"></td>
+                    <!--<<td>jill.stalk@youknow.who<input type="button" class="idBtn" onclick="idFunction(this)" name="JS911" value="Identify"></td>-->
                     <td>---<input type="button" class="idBtn" onclick="idFunction(this)" name="TS000" value="Identify"></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td><input type="button" class="idBtn" onclick="idFunction(this)" name="JS911" value="Identify"></td>
+                    <!--<td></td>-->
+                    <td><input type="button" class="idBtn" onclick="fbIdentify()" name="JS911" value="FB Identify"></td>
                 </tr>
                 
             </table>
