@@ -70,6 +70,39 @@
     <!--End hardcoded fb identify -->
     <!--Start hardcorded intercom identify -->
     <script>
+        function InterIdentify(){
+        analytics.identify('john.doe@doe.comx', {
+            email: 'john.doe@doe.comx',
+            emailVerified: 'john.doe@doe.comx',
+            integrations: {
+            All: true,
+            Amplitude: true,
+            Intercom: true
+            },
+            phone: '+6142623268',
+            phoneVerified: '+6142623268',
+            referralBonus: 62,
+            referralCode: 'b107b031-5a38-41d4-ba3d-17010bc49b6f',
+            referralLink: 'https://test.com',
+            referredBy: 'mentor@gmail.comxyz',
+            signupTimestamp: 1630469599424,
+            traits: {
+            email: 'john.doe@doe.comx',
+            emailVerified: 'john.doe@doe.comx',
+            phone: '+6142623268',
+            phoneVerified: '+6142623268',
+            referralBonus: 62,
+            referralCode: 'b107b031-5a38-41d4-ba3d-17010bc49b6f',
+            referralLink: 'https://test.com',
+            referredBy: 'mentor@gmail.comxyz',
+            signupTimestamp: 1630469599424
+            }
+            });
+        }
+    </script>
+    <!--End hardcoded intercom identify -->
+    <!--Start hardcorded intercom page -->
+    <script>
         function intercomPage(){
             // analytics.identify('TS000', {
             //     name: 'Tobi Segment',
@@ -91,7 +124,7 @@
         // });
         }
     </script>
-    <!--End hardcoded fb identify -->
+    <!--End hardcorded intercom page -->
     
 
 </head> 
@@ -114,7 +147,7 @@
                     <td>---<input type="button" class="idBtn" onclick="idFunction(this)" name="TS000" value="Identify"></td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td><input type="button" class="idBtn" onclick="InterIdentify()" name="JD1234" value="IntercomIdent"></td>
                     <td></td>
                     <td></td>
                     <!--<td></td>-->
