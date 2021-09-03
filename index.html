@@ -70,6 +70,27 @@
         }
     </script>
     <!--End hardcoded fb identify -->
+    <!--Start hardcorded hub identify -->
+    <script>
+        function HubSpotIdentify(){
+            analytics.identify('JA999', {
+                // name: 'Tobi Segment',
+                // gender: 'Male',
+                email: 'jane.austen@wanabe.comx',
+                // phone: '085750',
+                // address: {
+                //     city: 'San Francisco',
+                //     state: 'Ca',
+                //     postalCode: '94107'
+                // },
+            });
+            analytics.page();
+        //     analytics.track('Product Added', function() {
+        //     window.location.href = "";
+        // });
+        }
+    </script>
+    <!--End hardcoded hub identify -->
     <!--Start hardcorded intercom identify -->
     <script>
         function InterIdentify(){
@@ -150,7 +171,7 @@
                 </tr>
                 <tr>
                     <td><input type="button" class="idBtn" onclick="InterIdentify()" name="JD1234" value="IntercomIdent"></td>
-                    <td></td>
+                    <td><input type="button" class="idBtn" onclick="HubSpotIdentify()" name="JA999" value="HubSpotIdent"></td>
                     <td></td>
                     <!--<td></td>-->
                     <td><input type="button" class="idBtn" onclick="fbIdentify()" name="TS000" value="FB AddToCart"></td>
