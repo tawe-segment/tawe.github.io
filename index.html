@@ -75,9 +75,11 @@
         function HubSpotIdentify(){
             analytics.identify('JA999', {
                 email: 'jane.austen@wanabe.comx'
-            });
+            },{},{});
+            analytics.track('Signup', {
+                email: 'jane.austen@wanabe.comx'
+            },{},{});
             // analytics.page();
-            analytics.track('Signup');
         }
     </script>
     <!--End hardcoded hub identify -->
