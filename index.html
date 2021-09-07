@@ -141,12 +141,21 @@
     </script>
     <!--End hardcorded intercom page -->
     <!--Start hardcorded EventListener -->
-    <script>
+    <!-- <script>
         document.getElementById("add-to-cart").addEventListener("click", function(){
             analytics.track('DOM AddToCart Clicked', {
                 type: 'DOM button'
             });
-            console.log("AddToCart DOM Element Clicked")
+            console.log("AddToCart DOM Element Clicked");
+        });
+    </script> -->
+
+    <script>
+        document.getElementById("addToCart").addEventListener("click", function() {
+            analytics.track('DOM AddToCart Clicked', {
+                type: 'DOM button'
+            });
+            console.log("AddToCart DOM Element Clicked");
         });
     </script>
     <!--End hardcorded EventListener  -->
@@ -189,7 +198,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><input type="button" id="add-to-cart" name="TS000" value="FB AddToCart(DOM)"></td>
+                    <td><input type="button" id="addToCart" value="FB AddToCart(DOM)"></td>
                 </tr>
                 
             </table>
