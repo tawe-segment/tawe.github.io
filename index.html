@@ -150,14 +150,14 @@
         });
     </script> -->
 
-    <script>
+    <!-- <script>
         document.getElementById("addToCart").addEventListener("click", function() {
             analytics.track('DOM AddToCart Clicked', {
                 type: 'DOM button'
             });
             console.log("AddToCart DOM Element Clicked");
         });
-    </script>
+    </script> -->
     <!--End hardcorded EventListener  -->
     
 
@@ -220,7 +220,13 @@
         </form>
     </div>
     
-    <!--Placeholder for identify and track script -->
-
+    <script>
+        document.getElementById("addToCart").addEventListener("click", function() {
+            analytics.track('DOM AddToCart Clicked', {
+                type: 'DOM button'
+            });
+            console.log("AddToCart DOM Element Clicked");
+        });
+    </script>
 </body> 
 </html>
