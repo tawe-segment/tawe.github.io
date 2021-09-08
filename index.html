@@ -159,6 +159,31 @@
         });
     </script> -->
     <!--End hardcorded EventListener  -->
+    <!--Start hardcorded Pinterest GTM ATC -->
+    <script>
+        function pintrack(){
+            // analytics.identify('TS000', {
+            //     name: 'Tobi Segment',
+            //     gender: 'Male',
+            //     email: 'tobi_XYZ@segment.com',
+            //     phone: '085-750-4370',
+            //     address: {
+            //         city: 'San Francisco',
+            //         state: 'Ca',
+            //         postalCode: '94107'
+            //     }
+            // });
+            analytics.track('AddToCart',{
+                product_id: "1414",
+                product_name: "Parker Boots",
+                product_price: 99.99
+            });
+        //     analytics.track('Page Viewed Test', function() {
+        //     window.location.href = "";
+        // });
+        }
+    </script>
+    <!--End hardcorded Pinterest GTM ATC-->
     
 
 </head> 
@@ -197,7 +222,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td><input type="button" class="idBtn" onclick="pintrack()" name="JS5555" value="Pin GTM-ATC"></td>
                     <td><input type="button" id="addToCart" value="FB AddToCart(DOM)"></td>
                 </tr>
                 
