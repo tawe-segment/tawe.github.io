@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Referrer Page</title> 
+
+    <!--Start Placeholder for Segment Snippet -->
+    <script>
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK";analytics.SNIPPET_VERSION="4.13.2";
+      analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK");
+      var PAGE_NAME = "User Referrer Page"
+      analytics.identify('TS000', {
+                name: 'Tobi Segment',
+                gender: 'Male',
+                email: 'XYZ@segment.com',
+                phone: '085750',
+                address: {
+                    city: 'San Francisco',
+                    state: 'Ca',
+                    postalCode: '94107'
+                },
+                // phoneVerified:true,
+                // emailVerified:true,
+              });
+      analytics.page(PAGE_NAME,
+          {
+            title:PAGE_NAME //instead of html title "Load+Page() Only"
+          },
+          {
+            context:{
+              page:{
+                title:PAGE_NAME
+              }
+            }
+          },
+        );
+        var output = {}; //empty variable array
+          var qs = document.location.search.substring(1); //get query string from url
+          qs = qs.split('&'); //split at "&"
+        
+          //loop through each values in the above split and split at "="
+          //Store into output array
+          for (var i = 0; i < qs.length; i++) {
+            var tokens = qs[i].split('=');
+            output[tokens[0].toLowerCase()] = tokens[1];
+          }
+          //Remove object keys with empty values from output array
+          //Store as "results"
+          var results = Object.fromEntries(Object.entries(output).filter(value => value[1]))
+
+        analytics.track("User Referred", { 
+            label: "Users",
+          },
+          {
+            context:{
+              campaign: {
+                source:results.utm_source,
+                name:results.utm_campaign,
+                medium:results.utm_medium,
+                term:results.utm_term,
+                content:results.utm_content
+              }
+            }
+          });
+      }}();
+    </script>
+    <!--End Placeholder for Segment Snippet -->
+</head> 
+<body>
+<p>Just Another Page: Referrer</p>
+</body> 
+</html>
