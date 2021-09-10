@@ -34,6 +34,10 @@
             }
           },
         );
+        analytics.screen("User Referral Clicked", {
+            plan: "Standard",
+            accountType: "User"
+        });
         var output = {}; //empty variable array
           var qs = document.location.search.substring(1); //get query string from url
           qs = qs.split('&'); //split at "&"
