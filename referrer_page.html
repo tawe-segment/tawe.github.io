@@ -9,10 +9,10 @@
       !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK";analytics.SNIPPET_VERSION="4.13.2";
       analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK");
       var PAGE_NAME = "User Referrer Page"
-      analytics.identify('TS333', {
-                name: 'Tobi333 Segment',
+      analytics.identify('TS444', {
+                name: 'Tobi444 Segment',
                 gender: 'Male',
-                email: 'XYZ333@segment.com',
+                email: 'XYZ444@segment.com',
                 phone: '085750',
                 address: {
                     city: 'San Francisco',
@@ -21,7 +21,23 @@
                 },
                 // phoneVerified:true,
                 // emailVerified:true,
-              });
+              },
+              {
+            context:{
+              campaign: {
+                // source:results.utm_source,
+                // name:results.utm_campaign,
+                // medium:results.utm_medium,
+                // term:results.utm_term,
+                // content:results.utm_content
+                source:"tawe-github-context-cloud",
+                name:"referrer-campaign-context-cloud",
+                medium:"github-context-cloud",
+                term:"user-referred-context-cloud",
+                content:"none-context-cloud"
+              }
+            }
+          });
       analytics.page(PAGE_NAME,
           {
             title:PAGE_NAME //instead of html title "Load+Page() Only"
@@ -37,11 +53,11 @@
                 // medium:results.utm_medium,
                 // term:results.utm_term,
                 // content:results.utm_content
-                source:"tawe-github-cloud",
-                name:"referrer-campaign-cloud",
+                source:"tawe-github-context-cloud",
+                name:"referrer-campaign-context-cloud",
                 medium:"github-context-cloud",
                 term:"user-referred-context-cloud",
-                content:"none-context-cloud",
+                content:"none-context-cloud"
               }
             }
           },
