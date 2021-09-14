@@ -179,9 +179,24 @@
                 product_price: 99.99
             }
             );
+
+            analytics.track('Product Added',{
+                product_id: "1414",
+                product_name: "Parker Boots",
+                price: 99.99
+            },
+            {
+                context: {
+                    protocols: {
+                        event_version: 2
+                    }
+                }
+            });
         //     analytics.track('Page Viewed Test', function() {
         //     window.location.href = "";
         // });
+
+        
         }
     </script>
     <!--End hardcorded Pinterest GTM ATC-->
