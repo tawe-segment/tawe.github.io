@@ -37,6 +37,7 @@
 <body>
     <form id="mktoForm_11"></form>
     <script>MktoForms2.loadForm("//app-ab04.marketo.com", "332-UOQ-444", 11,function(form) {
+
         // Add an onSubmit handler
         form.onSubmit(function(){
         // Get the form field values
@@ -44,8 +45,12 @@
         // You may wish to call other function calls here, for example to fire google analytics tracking or the like
         // callSomeFunction(vals);
         // We'll just alert them to show the principle
-        return false;
+        // return false;
         console.log("Submitted values: " + JSON.stringify(vals));
+    });
+        form.onSuccess(function(values, followUpUrl) {
+            // Return false to prevent the submission handler from taking the lead to the follow up url
+            return false;
     });
     });
     console.log("2")
