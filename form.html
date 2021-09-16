@@ -46,6 +46,7 @@
         // callSomeFunction(vals);
         // We'll just alert them to show the principle
         // return false;
+        analytics.trackForm(vals, 'Marketo TrackForm');
         console.log("Submitted values: " + JSON.stringify(vals));
         console.log(vals.FirstName)
     });
