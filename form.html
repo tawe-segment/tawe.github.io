@@ -30,14 +30,36 @@
       }}();
     </script>
     <!--End Placeholder for Segment Snippet -->
-    <script src="//app-ab04.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <script src="//app-ab04.marketo.com/js/forms2/js/forms2.min.js">
+    console.log("1")
+    </script>
 </head> 
 <body>
     <form id="mktoForm_11"></form>
     <script>MktoForms2.loadForm("//app-ab04.marketo.com", "332-UOQ-444", 11);
-        var form = document.getElementById('mktoForm_11');
-        analytics.trackForm(form, 'Marketo Form Submitted');
-        console.log(form)
+    console.log("2")
+    </script>
+    <script>
+        // analytics.trackForm(form, 'Marketo Form Submitted');
+        var output = {}; //empty variable array
+          var qs = document.location.search.substring(1); //get query string from url
+          qs = qs.split('&'); //split at "&"
+        
+          //loop through each values in the above split and split at "="
+          //Store into output array
+          for (var i = 0; i < qs.length; i++) {
+            var tokens = qs[i].split('=');
+            output[tokens[0].toLowerCase()] = tokens[1];
+          }
+          //Remove object keys with empty values from output array
+          //Store as "results"
+          var results = Object.fromEntries(Object.entries(output).filter(value => value[1]))
+
+        analytics.track("Marketo Form Submitted", { 
+            firstName:results.firstname,
+            lastName:results.lastname,
+            email:results.email,
+          });
     </script>
 </body> 
 </html>
