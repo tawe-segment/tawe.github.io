@@ -42,13 +42,12 @@
         form.onSubmit(function(){
         // Get the form field values
         var vals = form.vals();
-        // You may wish to call other function calls here, for example to fire google analytics tracking or the like
-        // callSomeFunction(vals);
-        // We'll just alert them to show the principle
-        // return false;
-        analytics.trackForm(vals, 'Marketo TrackForm');
-        console.log("Submitted values: " + JSON.stringify(vals));
-        console.log(vals.FirstName)
+        //call analytics.track method on submit
+        analytics.track('Marketo Form Submitted',{
+            firstName:vals.FirstName,
+            lastName:vals.LastName,
+            email:vals.Email,
+        });
     });
         form.onSuccess(function(values, followUpUrl) {
             // Return false to prevent the submission handler from taking the lead to the follow up url
