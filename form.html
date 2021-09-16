@@ -34,6 +34,10 @@
 </head> 
 <body>
     <form id="mktoForm_11"></form>
-    <script>MktoForms2.loadForm("//app-ab04.marketo.com", "332-UOQ-444", 11);</script>
+    <script>MktoForms2.loadForm("//app-ab04.marketo.com", "332-UOQ-444", 11);
+        var form = document.getElementById('mktoForm_11');
+        analytics.trackForm(form, 'Marketo Form Submitted');
+        console.log(form)
+    </script>
 </body> 
 </html>
