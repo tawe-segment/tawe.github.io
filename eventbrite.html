@@ -12,22 +12,25 @@
 </head> 
 <body>
 <p>
-    <button id="example-widget-trigger" type="button">Buy Tickets</button>
+    <noscript><a href="https://www.eventbrite.com/e/tobi-testing-tickets-178745331097" rel="noopener noreferrer" target="_blank"></noscript>
+        <!-- You can customize this button any way you like -->
+        <button id="eventbrite-widget-modal-trigger-178745331097" type="button">Buy Tickets</button>
+        <noscript></a>Buy Tickets on Eventbrite</noscript>
 </p>
 <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-
-<script type="text/javascript">
-  var exampleCallback = function() {
-    console.log("Order complete!");
-  };
-
-  window.EBWidgets.createWidget({
-    widgetType: "checkout",
-    eventId: "178745331097",
-    modal: true,
-    modalTriggerElementId: "example-widget-trigger",
-    onOrderComplete: exampleCallback
-  });
-</script>
+    
+    <script type="text/javascript">
+        var exampleCallback = function() {
+            console.log('Order complete!');
+        };
+    
+        window.EBWidgets.createWidget({
+            widgetType: 'checkout',
+            eventId: '178745331097',
+            modal: true,
+            modalTriggerElementId: 'eventbrite-widget-modal-trigger-178745331097',
+            onOrderComplete: exampleCallback
+        });
+    </script>
 </body> 
 </html>
