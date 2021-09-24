@@ -22,6 +22,15 @@
     <script type="text/javascript">
         var exampleCallback = function() {
             console.log('Order complete!');
+            analytics.track('Order Completed',{
+                campaign:{
+                    context:{
+                        utm_source:'website-eventbrite',
+                        utm_medium:'test-eventbrite',
+                        utm_campaign:'test-event-tobi',
+                    }
+                }
+        });
         };
     
         window.EBWidgets.createWidget({
