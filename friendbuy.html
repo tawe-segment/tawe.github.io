@@ -14,29 +14,29 @@
             var is_anon = true;
 
             if (is_anon == true) {
-                analytics.identify('TP007', {
-                    email:'TP007@segment.com',
-                    firstName: 'TP007',
+                analytics.identify('TP009', {
+                    email:'TP009@segment.com',
+                    firstName: 'TP009',
                     lastName: 'Segment',
                     is_anon: is_anon,
                     created_at: new Date().toISOString()
                 },
                 {
                     integrations: {
-                        FriendBuy: false,
+                        Friendbuy: false,
                     }
                 });
             } else {
-                analytics.identify('TP007', {
-                    email:'TP007@segment.com',
-                    firstName: 'TP007',
+                analytics.identify('TP009', {
+                    email:'TP009@segment.com',
+                    firstName: 'TP009',
                     lastName: 'Segment',
                     is_anon: is_anon,
                     created_at: new Date().toISOString()
                 },
                 {
                     integrations: {
-                        FriendBuy: true,
+                        Friendbuy: true,
                     }
                 });
             }
