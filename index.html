@@ -65,9 +65,10 @@
                 birthday:'1983-07-25' , //0b2692fa6316a7e6228f3fb83f2cefc026191d45b35ad927e810c5b4e376f796
             });
             analytics.page();
-            analytics.track('Product Added', function() {
-            window.location.href = "";
-        });
+            analytics.track('Product Added',{
+                content_ids: ['1234','1853','9386'],
+                content_type:'Grocery'
+            });
         }
     </script>
     <!--End hardcoded fb identify -->
@@ -208,6 +209,21 @@
             });
         }
     </script>
+
+<script type="text/javascript">
+function Hubspot2(){
+    var guid = '@signupGuid';
+    if (guid != ''){
+        var email = 'tobi.cj@segmentest.com';
+        var fullName = 'ToBi CJ';
+        analytics.identify(guid, {
+        name: fullName,
+        email: email
+        });
+        analytics.page();
+    }
+}
+</script>
     
 
 </head> 
@@ -245,7 +261,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td></td>
+                    <td><input type="button" class="idBtn" onclick="Hubspot2()" name="JA999" value="Hubspot 2"></td>
                     <td><input type="button" class="idBtn" onclick="pintrack()" name="JS5555" value="Pin GTM-ATC"></td>
                     <td><input type="button" id="addToCart" value="FB AddToCart(DOM)"></td>
                 </tr>
