@@ -11,10 +11,12 @@
         //       All: false,
         //     }
         //   });
+        let anon_id = window.Intercom('getVisitorId');
+        analytics.setAnonymousId(anon_id);
+        console.log(anon_id);
         }}();
       </script>
       <script>
-
         analytics.ready(function() {
           analytics.timeout(500);
           analytics.page();
