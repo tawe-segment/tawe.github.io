@@ -12,16 +12,20 @@
         //     }
         //   });
         analytics.page();
+        let anon_id = window.Intercom('getVisitorId');
+          // analytics.setAnonymousId(anon_id);
+          console.log(typeof anon_id)
+          console.log(anon_id)
         }}();
       </script>
       <script>
         analytics.ready(function() {
           // analytics.page();
           analytics.timeout(500);
-          let anon_id = window.Intercom('getVisitorId');
-          // analytics.setAnonymousId(anon_id);
-          console.log(typeof anon_id)
-          console.log(anon_id)
+          // let anon_id = window.Intercom('getVisitorId');
+          // // analytics.setAnonymousId(anon_id);
+          // console.log(typeof anon_id)
+          // console.log(anon_id)
         });
       </script>
       <!-- <script>
