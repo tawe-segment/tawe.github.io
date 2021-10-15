@@ -12,9 +12,18 @@
         //     }
         //   });
         analytics.page();
+        analytics.ready(function() {
+          // analytics.page();
+          // analytics.timeout(0);
+          let anon_id = window.Intercom('getVisitorId');
+          analytics.setAnonymousId(anon_id);
+          console.log(typeof anon_id)
+          console.log(anon_id)
+
+        });
         }}();
       </script>
-      <script>
+      <!-- <script>
         analytics.ready(function() {
           // analytics.page();
           analytics.timeout(0);
@@ -24,7 +33,7 @@
           console.log(anon_id)
 
         });
-      </script>
+      </script> -->
       <!-- <script>
         analytics.ready(function() {
           analytics.timeout(500);
