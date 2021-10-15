@@ -19,7 +19,7 @@
           // analytics.page();
           analytics.timeout(500);
           let anon_id = window.Intercom('getVisitorId');
-          // analytics.setAnonymousId(Intercom('getVisitorId').toString());
+          analytics.setAnonymousId(anon_id.toString);
           console.log(anon_id.toString())
         });
       </script>
