@@ -11,21 +11,22 @@
         //       All: false,
         //     }
         //   });
+        analytics.page();
         }}();
       </script>
-    <!-- <script>
-          analytics.page();
-          let anon_id = window.Intercom('getVisitorId');
-          analytics.setAnonymousId(anon_id);
-          console.log(anon_id);
-    </script> -->
       <script>
         analytics.ready(function() {
-          analytics.timeout(0);
-          analytics.page();
+          // analytics.page();
+          analytics.timeout(500);
           console.log(window.Intercom('getVisitorId'))
         });
       </script>
+      <!-- <script>
+        analytics.ready(function() {
+          analytics.timeout(500);
+          analytics.page();
+        });
+      </script> -->
 </head> 
 <body>
 <p>Just Another Page: Random with no default spec</p>
