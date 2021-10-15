@@ -13,18 +13,19 @@
         //   });
         }}();
       </script>
-    <script>
+    <!-- <script>
           analytics.page();
           let anon_id = window.Intercom('getVisitorId');
           analytics.setAnonymousId(anon_id);
           console.log(anon_id);
-    </script>
-      <!-- <script>
+    </script> -->
+      <script>
         analytics.ready(function() {
-          analytics.timeout(500);
+          analytics.timeout(0);
           analytics.page();
+          console.log(window.Intercom('getVisitorId'))
         });
-      </script> -->
+      </script>
 </head> 
 <body>
 <p>Just Another Page: Random with no default spec</p>
