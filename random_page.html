@@ -12,13 +12,13 @@
         //     }
         //   });
         analytics.page();
-        analytics.setAnonymousId(Intercom('getVisitorId').toString());
         }}();
       </script>
       <script>
         analytics.ready(function() {
           // analytics.page();
           analytics.timeout(500);
+          // analytics.setAnonymousId(Intercom('getVisitorId').toString());
           console.log(window.Intercom('getVisitorId').toString())
         });
       </script>
