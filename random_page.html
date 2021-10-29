@@ -28,6 +28,13 @@
         analytics.debug()
         }}();
       </script>
+      <script>
+        analytics.ready(function () {
+          ga('create', 'UA-205296314-1', 'auto', {
+            'clientId': getClientIdFromUrl()
+          });
+      });
+      </script>
       <!-- <script>
         analytics.ready(function() {
           analytics.page();
