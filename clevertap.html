@@ -32,7 +32,14 @@
             name: fullname, 
         };
 
-        analytics.track('CleverTap submitted', data, function(){});
+        analytics.track('CleverTap submitted', data,{
+            context: {
+                traits: {
+                    email: email,
+                }
+            }
+        },
+        function(){});
         }
     </script>
 </head> 
