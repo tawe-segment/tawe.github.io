@@ -27,8 +27,12 @@
         var form = e.target;
         var email = form["email"].value;
         var fullname = form["fullname"].value;
+        var data = {
+            email: email, 
+            name: fullname, 
+        };
 
-        analytics.track('CleverTap submitted', function(){});
+        analytics.track('CleverTap submitted', data, function(){});
         }
     </script>
 </head> 
