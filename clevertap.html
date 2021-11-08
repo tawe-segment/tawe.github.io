@@ -9,36 +9,35 @@
         analytics.page();
         }}();
       </script>
-      <!-- <script>
-        function cleverTap(){
-            var form = document.getElementById('travel-form');
-
-            // analytics.trackForm(form, 'Travel Form Submitted', {
-            //     fullname: 'Premium',
-            //     email: 99.00
-            // });  
-            console.log(form["fullname"].value);
-        }
-    </script> -->
     <script type="text/javascript">
+        var userId;
 
+        function idFunction(id) {
+            userId = id.name;
+            console.log(userId);
+            analytics.reset();
+            analytics.identify(userId);
+            analytics.page();
+        }
+        
         function cleverTap(e){
         e.preventDefault();
         var form = e.target;
         var email = form["email"].value;
         var fullname = form["fullname"].value;
+        var food =  form["fav-food"].value;
         var data = {
             email: email, 
-            name: fullname, 
+            name: fullname,
+            fav_food: food,
         };
 
-        analytics.track('CleverTap submitted', data,{
-            context: {
-                traits: {
-                    email: email,
-                }
-            }
-        },
+        analytics.identify(userId, {
+            email: email, 
+            name: fullname
+        });
+
+        analytics.track('CleverTap submitted', data,
         function(){});
         }
     </script>
@@ -50,6 +49,8 @@
         <input id="fullname" name="fullname" required="" type="text" />
     <label for="email">Email <em>&#x2a;</em></label>
         <input id="email" name="email" required="" type="email" />
+    <label for="fav-food">Fav Food <em>&#x2a;</em></label>
+        <input id="fav-food" name="fav-food" required="" type="fav-food" />
     <button id="submitForm">SUBMIT</button>
 </form>
 </body> 
