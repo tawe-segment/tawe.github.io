@@ -9,7 +9,7 @@
         analytics.page();
         }}();
       </script>
-      <script>
+      <!-- <script>
         function cleverTap(){
             var form = document.getElementById('travel-form');
 
@@ -19,8 +19,8 @@
             // });  
             console.log(form["fullname"].value);
         }
-    </script>
-    <!-- <script type="text/javascript">
+    </script> -->
+    <script type="text/javascript">
 
         function cleverTap(e){
         e.preventDefault();
@@ -30,11 +30,11 @@
 
         analytics.track('CleverTap submitted', function(){});
         }
-    </script> -->
+    </script>
 </head> 
 <body>
 <p>Just Another Page: CleverTap only</p>
-<form id="travel-form" name="travel" onsubmit="cleverTap()">
+<form id="travel-form" name="travel" onsubmit="cleverTap(event)">
     <label for="fullname">Full Name <em>&#x2a;</em></label>
         <input id="fullname" name="fullname" required="" type="text" />
     <label for="email">Email <em>&#x2a;</em></label>
