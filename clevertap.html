@@ -9,7 +9,7 @@
         analytics.page();
         }}();
       </script>
-      <!-- <script>
+      <script>
         function cleverTap(){
             var form = document.getElementById('travel-form');
 
@@ -17,10 +17,10 @@
             //     fullname: 'Premium',
             //     email: 99.00
             // });  
-            console.log(form);
+            console.log(form["fullname"].value);
         }
-    </script> -->
-    <script type="text/javascript">
+    </script>
+    <!-- <script type="text/javascript">
 
         function cleverTap(e){
         e.preventDefault();
@@ -30,7 +30,7 @@
 
         analytics.track('CleverTap submitted', function(){});
         }
-    </script>
+    </script> -->
 </head> 
 <body>
 <p>Just Another Page: CleverTap only</p>
