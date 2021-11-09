@@ -201,9 +201,12 @@ body {font-family: "Lato", sans-serif}
 function trackFunction(nav_clicked){
     var nav_id = nav_clicked;
     var link = document.getElementById(`${nav_id}`);
+    var event = `${nav_id}`+" Clicked";
+
     console.log(`${nav_id}`)
     console.log(link)
     console.log(`${nav_clicked}`)
+    console.log(event)
     analytics.trackLink(link, 'Testing', {
         plan: 'nav_id'
     });
