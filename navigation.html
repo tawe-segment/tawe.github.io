@@ -204,11 +204,8 @@ function trackFunction(nav_clicked){
     console.log(`${nav_id}`)
     console.log(link)
     console.log(`${nav_clicked}`)
-    analytics.trackLink(`${nav_id}`, {
+    analytics.trackLink(link, 'Testing', {
         plan: 'nav_id'
-    });
-    analytics.trackLink(`${nav_clicked}`, {
-        plan: 'nav_clicked'
     });
 }  
 
