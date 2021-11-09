@@ -6,6 +6,12 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="wOSUOOubBvU6lqF47Y52plMlMiAbvUXQ";;analytics.SNIPPET_VERSION="4.15.3";
+    analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK",{ integrations: { All: false, 'Segment.io': true } });
+    analytics.page();
+    }}();
+</script>
 <style>
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
@@ -16,18 +22,10 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-    <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-        <a href="#" class="w3-bar-item w3-button">Extras</a>
-        <a href="#" class="w3-bar-item w3-button">Media</a>
-      </div>
-    </div>
+    <a id="home-1" href="#" class="w3-bar-item w3-button w3-padding-large" onclick="trackFunction(this.id)">HOME</a>
+    <a id="band-2" href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small" onclick="trackFunction(this.id)">BAND</a>
+    <a id="tour-3" href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small" onclick="trackFunction(this.id)">TOUR</a>
+    <a id="contact-4" href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small" onclick="trackFunction(this.id)">CONTACT</a>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>
@@ -198,6 +196,11 @@ body {font-family: "Lato", sans-serif}
 </footer>
 
 <script>
+
+function trackFunction(nav_clicked){
+    console.log(nav_clicked)
+}  
+
 // Automatic Slideshow - change image every 4 seconds
 var myIndex = 0;
 carousel();
