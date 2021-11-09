@@ -31,19 +31,21 @@ body {font-family: "Lato", sans-serif}
   </div>
 </div>
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a id="band_link" href="#band" class="w3-bar-item w3-button w3-padding-large" >BAND</a>
-  <a id="tour_link" href="#tour" class="w3-bar-item w3-button w3-padding-large" >TOUR</a>
-  <a id="contact_link" href="#contact" class="w3-bar-item w3-button w3-padding-large" >CONTACT</a>
+<div class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a id="band_link_small" href="#band" class="w3-bar-item w3-button w3-padding-large">BAND</a>
+  <a id="tour_link" href="#tour" class="w3-bar-item w3-button w3-padding-large">TOUR</a>
+  <a id="contact_link" href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
 </div>
 <script>
     var homeLink = document.getElementById("home_link");
     var bandLink = document.getElementById("band_link");
+    var bandLinkS = document.getElementById("band_link_small");
     var tourLink = document.getElementById("tour_link");
     var contactLink = document.getElementById("contact_link");
     
     analytics.trackLink(homeLink, 'Home Clicked');
     analytics.trackLink(bandLink, 'Band Clicked');
+    analytics.trackLink(bandLinkS, 'Band Clicked');
     analytics.trackLink(tourLink, 'Tour Clicked');
     analytics.trackLink(contactLink, 'Contact Clicked');
 </script>
