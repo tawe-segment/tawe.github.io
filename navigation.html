@@ -38,16 +38,28 @@ body {font-family: "Lato", sans-serif}
 </div>
 <script>
     var homeLink = document.getElementById("home_link");
+
     var bandLink = document.getElementById("band_link");
     var bandLinkS = document.getElementById("band_link_small");
+
     var tourLink = document.getElementById("tour_link");
+    var tourLinkS = document.getElementById("tour_link_small");
+
     var contactLink = document.getElementById("contact_link");
+    var contactLinkS = document.getElementById("contact_link_small");
+
     
     analytics.trackLink(homeLink, 'Home Clicked');
+
     analytics.trackLink(bandLink, 'Band Clicked');
     analytics.trackLink(bandLinkS, 'Band Clicked');
+
     analytics.trackLink(tourLink, 'Tour Clicked');
+    analytics.trackLink(tourLinkS, 'Band Clicked');
+
     analytics.trackLink(contactLink, 'Contact Clicked');
+    analytics.trackLink(contactLinkS, 'Band Clicked');
+
 </script>
 <!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
