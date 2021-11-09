@@ -221,8 +221,9 @@ body {font-family: "Lato", sans-serif}
 <script>
 //trackFunction
 function trackFunction(id){
-    var event = `${id}`+" Clicked"
-    console.log(event)
+    var event = `${id}`+" Clicked";
+    console.log(event);
+    analytics.track(event);
 }
 
 // Automatic Slideshow - change image every 4 seconds
