@@ -23,10 +23,10 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a id="home-1" href="#" class="w3-bar-item w3-button w3-padding-large" onclick="trackFunction(this.id)">HOME</a>
-    <a id="band-2" href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small" onclick="trackFunction(this.id)">BAND</a>
-    <a id="tour-3" href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small" onclick="trackFunction(this.id)">TOUR</a>
-    <a id="contact-4" href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small" onclick="trackFunction(this.id)">CONTACT</a>
+    <a id="home" href="#" class="w3-bar-item w3-button w3-padding-large" onclick="trackFunction(this.id)">HOME</a>
+    <a id="band" href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small" onclick="trackFunction(this.id)">BAND</a>
+    <a id="tour" href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small" onclick="trackFunction(this.id)">TOUR</a>
+    <a id="contact" href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small" onclick="trackFunction(this.id)">CONTACT</a>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>
@@ -199,7 +199,14 @@ body {font-family: "Lato", sans-serif}
 <script>
 
 function trackFunction(nav_clicked){
-    console.log(nav_clicked)
+    var link = document.getElementById(nav_clicked);
+    console.log(link)
+
+
+
+    // analytics.trackLink(link, 'Clicked Free-Trial Link', {
+    //     plan: 'Enterprise'
+    // });
 }  
 
 // Automatic Slideshow - change image every 4 seconds
