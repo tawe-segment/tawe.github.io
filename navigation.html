@@ -200,13 +200,13 @@ body {font-family: "Lato", sans-serif}
 
 function trackFunction(nav_clicked){
     var nav_id = nav_clicked;
-    var link = document.getElementById(nav_id);
+    var link = document.getElementById(`${nav_id}`);
     console.log(`${nav_id}`)
     console.log(link)
     // analytics.trackLink(link, {
     //     plan: 'Enterprise'
     // });
-    
+
 }  
 
 // Automatic Slideshow - change image every 4 seconds
