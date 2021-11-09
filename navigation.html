@@ -23,10 +23,10 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a id="nav_clicked" href="https://tawe-segment.github.io/tawe.github.io/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a id="nav_clicked" href="https://tawe-segment.github.io/tawe.github.io/random_page" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Random</a>
-    <a id="nav_clicked" href="https://tawe-segment.github.io/tawe.github.io/another_page" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Another</a>
-    <a id="nav_clicked" href="https://tawe-segment.github.io/tawe.github.io/referrer_page" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Referrer</a>
+    <a id="nav_clicked" href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a id="nav_clicked" href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
+    <a id="nav_clicked" href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
+    <a id="nav_clicked" href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>
@@ -34,6 +34,9 @@ body {font-family: "Lato", sans-serif}
     var link = document.getElementById(nav_clicked);
 
     analytics.trackLink(link, 'Testing', {
+        plan: 'Enterprise'
+    });
+    analytics.track(link, {
         plan: 'Enterprise'
     });
 </script>
