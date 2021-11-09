@@ -12,13 +12,6 @@
     analytics.page();
     }}();
 </script>
-<script>
-    var link = document.getElementById(nav_clicked);
-
-    analytics.trackLink(link, 'Testing', {
-        plan: 'Enterprise'
-    });
-</script>
 <style>
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
@@ -37,7 +30,13 @@ body {font-family: "Lato", sans-serif}
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>
+<script>
+    var link = document.getElementById(nav_clicked);
 
+    analytics.trackLink(link, 'Testing', {
+        plan: 'Enterprise'
+    });
+</script>
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
