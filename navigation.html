@@ -32,8 +32,15 @@ body {font-family: "Lato", sans-serif}
 </div>
 <script>
     var homeLink = document.getElementById("home_link");
-    console.log(homeLink)
+    var bandLink = document.getElementById("band_link");
+    var tourLink = document.getElementById("tour_link");
+    var contactLink = document.getElementById("contact_link");
+    
     analytics.trackLink(homeLink, 'Home Clicked');
+    analytics.trackLink(bandLink, 'Band Clicked');
+    analytics.trackLink(tourLink, 'Tour Clicked');
+    analytics.trackLink(contactLink, 'Contact Clicked');
+
 </script>
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <!-- <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
