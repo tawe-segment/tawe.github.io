@@ -14,8 +14,10 @@
             if(payload.obj.event === "Test Event"){
                 payload.obj.event += " SM";
                 next(payload);
-                analytics.addSourceMiddleware(smw4);
-            }
+            } 
+            // else if(payload.obj.event !== "Test Event"){
+            //     next(payload);
+            // }
             //
         };
         analytics.addSourceMiddleware(smw4);
