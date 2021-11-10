@@ -11,9 +11,10 @@
     </script>
     <script>
         var smw4 = function ({ payload, next, integrations }) {
-            if(payload.obj.event = "Test Event"){
+            if(payload.obj.event === "Test Event"){
                 payload.obj.event += " SM";
                 next(payload);
+                analytics.addSourceMiddleware(smw4);
             }
         };
         analytics.addSourceMiddleware(smw4);
