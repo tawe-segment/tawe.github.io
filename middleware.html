@@ -15,10 +15,10 @@
                 payload.obj.event += " SM";
                 next(payload);
             } 
-            // else if(payload.obj.event !== "Test Event"){
-            //     next(payload);
-            // }
-            //
+            else if(payload.obj.event !== "Test Event"){
+                next(payload);
+            }
+            
         };
         analytics.addSourceMiddleware(smw4);
     </script>
