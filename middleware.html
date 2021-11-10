@@ -16,10 +16,7 @@
                 next(payload);
             }
         };
-        
-        window.addMiddlewares = function () {
-            window.analytics.addSourceMiddleware(smw4);
-        };
+        analytics.addSourceMiddleware(smw4);
     </script>
 </head> 
 <body>
