@@ -20,6 +20,9 @@
         if(pageAccessedByReload == false){
             analytics.track('Order Completed')
             console.log('Page Reloaded?: '+pageAccessedByReload);
+        } else {
+            analytics.track('Order Completed Page Refreshed')
+            console.log('Page Reloaded?: '+pageAccessedByReload);
         }
     </script>
 </head> 
