@@ -18,10 +18,14 @@
             .includes('reload')
         );
         if(pageAccessedByReload == false){
-            analytics.track('Order Completed')
+            analytics.track('Order Completed',{
+                'page_reload': pageAccessedByReload
+            })
             console.log('Page Reloaded?: '+pageAccessedByReload);
         } else {
-            analytics.track('Order Completed Page Refreshed')
+            analytics.track('Order Completed Page Refreshed',{
+                'page_reload': pageAccessedByReload
+            })
             console.log('Page Reloaded?: '+pageAccessedByReload);
         }
     </script>
