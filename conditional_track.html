@@ -10,13 +10,7 @@
         analytics.page('Track with Navigation')
     </script>
     <script>
-        const pageAccessedByReload = (
-        (window.performance.navigation && window.performance.navigation.type === 1) ||
-            window.performance
-            .getEntriesByType('navigation')
-            .map((nav) => nav.type)
-            .includes('reload')
-        );
+        const pageAccessedByReload = performance.getEntriesByType("navigation")[0].type === 'reload' ? true : false
         if(pageAccessedByReload == false){
             analytics.track('Order Completed',{
                 'page_reload': pageAccessedByReload
