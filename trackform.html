@@ -31,8 +31,8 @@
   <script>
       var form = document.getElementById("myform");
       analytics.trackForm(form, "Signed Up", {
-          plan: 'Premium',
-          revenue: 99.00
+          fname: form.fname,
+          lname: form.lname
         })
   </script>
 </body> 
