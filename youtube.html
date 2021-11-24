@@ -9,6 +9,18 @@
         analytics.page("Youtube Page")
         }}();
     </script>
+    <script>
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            videoId: '2fErE_8hFEc'
+            });
+            var ytAnalytics = new window.analyticsPlugins.YT(player, 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX0365')
+            ytAnalytics.initialize()
+        }
+    </script>
 </head> 
 <body>
 <p>Just Another Page: Testing Youtube plugin <br />
