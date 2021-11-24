@@ -30,9 +30,11 @@
   </form> 
   <script>
       var form = document.getElementById("myform");
+      var vals = form.vals()
+      console.log(vals)
       analytics.trackForm(form, "Signed Up", {
-          fname: form.fname,
-          lname: form.lname
+        //   fname: form.fname,
+        //   lname: form.lname
         })
   </script>
 </body> 
