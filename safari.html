@@ -141,12 +141,13 @@
     <script>
         function logSubmit(event) {
 
+            const userId = Math.random().toString(36).substr(2, 9);
             const formEntries = new FormData(form).entries();
             const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({ [name]: value })));
             console.log(formData)
             event.preventDefault();
             analytics.track("lead form submit", formData);
-            analytics.identify("lead form submit", formData);
+            analytics.identify(userId, formData);
         }
         const form = document.getElementById("Safari-test-Form")
         form.addEventListener('submit', logSubmit);
