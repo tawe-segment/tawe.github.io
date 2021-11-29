@@ -110,38 +110,38 @@
         }();
     </script>
     <script>
-        function safariForm() {
-            const formElemList = document.querySelectorAll("form");
-            formElemList.forEach((form) => {
-                form.addEventListener("submit", (e) => {
-                    // on form submission, prevent default
-                    e.preventDefault();
-                    // construct a FormData object, which fires the formdata event
-                    new FormData(form);
-                });
-
-                form.addEventListener("formdata", (e) => {
-                    // Get the form data from the event object
-                    let data = e.formData;
-                    console.log(data)
-                    let obj = {};
-
-                    const entries = [...data.entries()];
-                    console.log(entries);
-
-                    entries.forEach((entry) => (obj[entry[0]] = entry[1]));
-                    obj.form_name = form.attributes[2]
-                    console.log(obj.form_name)
-                    // analytics.track("lead form submit", obj);
-                    // analytics.identify("lead form submit", obj);
-                });
+        // function safariForm() {
+        const formElemList = document.querySelectorAll("form");
+        formElemList.forEach((form) => {
+            form.addEventListener("submit", (e) => {
+                // on form submission, prevent default
+                e.preventDefault();
+                // construct a FormData object, which fires the formdata event
+                new FormData(form);
             });
-        }
+
+            form.addEventListener("formdata", (e) => {
+                // Get the form data from the event object
+                let data = e.formData;
+                console.log(data)
+                let obj = {};
+
+                const entries = [...data.entries()];
+                console.log(entries);
+
+                entries.forEach((entry) => (obj[entry[0]] = entry[1]));
+                obj.form_name = form.attributes[2]
+                console.log(obj.form_name)
+                // analytics.track("lead form submit", obj);
+                // analytics.identify("lead form submit", obj);
+            });
+        });
+        // }
     </script>
 </head>
 
 <body>
-    <form name="Safari-test-Form">
+    <form name="Safari-test-Form" method="post">
         <ul class="form-style-1">
             <li><label>Full Name <span class="required">*</span></label><input type="text" name="field1"
                     class="field-divided" placeholder="First" /> <input type="text" name="field2" class="field-divided"
