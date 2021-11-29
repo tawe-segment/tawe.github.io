@@ -133,16 +133,15 @@
     <script>
         function logSubmit(event) {
             // analytics.track("lead form submit");
+            const form = document.getElementById("Safari-test-Form")
+            console.log(form)
+
+            const formEntries = new FormData(form).entries();
+            console.log(formEntries)
+            const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({ [name]: value })));
+            console.log(formData)
             event.preventDefault();
         }
-
-        const form = document.getElementById("Safari-test-Form")
-        console.log(form)
-
-        const formEntries = new FormData(form).entries();
-        console.log(formEntries)
-        const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({ [name]: value })));
-        console.log(formData)
         form.addEventListener('submit', logSubmit);
     </script>
 </body>
