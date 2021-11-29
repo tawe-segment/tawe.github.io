@@ -123,14 +123,17 @@
                 form.addEventListener("formdata", (e) => {
                     // Get the form data from the event object
                     let data = e.formData;
+                    console.log(data)
                     let obj = {};
 
                     const entries = [...data.entries()];
+                    console.log(entries)
 
                     entries.forEach((entry) => (obj[entry[0]] = entry[1]));
-                    obj.form_name = form.attributes[2].nodeValue
-                    analytics.track("lead form submit", obj);
-                    analytics.identify("lead form submit", obj);
+                    obj.form_name = form.attributes[2]
+                    console.log(obj.form_name)
+                    // analytics.track("lead form submit", obj);
+                    // analytics.identify("lead form submit", obj);
                 });
             });
         }
@@ -138,7 +141,7 @@
 </head>
 
 <body>
-    <form>
+    <form name="Safari-test-Form">
         <ul class="form-style-1">
             <li><label>Full Name <span class="required">*</span></label><input type="text" name="field1"
                     class="field-divided" placeholder="First" /> <input type="text" name="field2" class="field-divided"
@@ -160,7 +163,7 @@
                 <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
             </li>
             <li>
-                <button onclick="safariForm()">Submit Form</button>
+                <input type="submit" value="Submit" />
             </li>
         </ul>
     </form>
