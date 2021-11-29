@@ -44,42 +44,43 @@
             window.dataLayer.push(function () {
                 this.reset();
             })
-            //unknown impact but wait 5 seconds to ensure above code runs before track method
-            await new Promise(resolve => setTimeout(resolve, 5000));
 
-            //then track:
-            analytics.track('Order Completed', {
-                checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
-                order_id: '50314b8e9bcf000000000000',
-                affiliation: 'Google Store',
-                total: 27.50,
-                subtotal: 22.50,
-                revenue: 25.00,
-                shipping: 3,
-                tax: 2,
-                discount: 2.5,
-                coupon: 'hasbros',
-                currency: 'USD',
-                products: [
-                    {
-                        product_id: '505bd76785ebb509fc183733',
-                        sku: '46493-32',
-                        name: 'Uno Card Game',
-                        price: 3,
-                        quantity: 2,
-                        category: 'Games'
-                    }
-                ]
-            });
+            //unknown impact but wait 5 seconds to ensure above code runs before track method
+            setTimeout(function () {
+                //then track:
+                analytics.track('Order Completed', {
+                    checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
+                    order_id: '50314b8e9bcf000000000000',
+                    affiliation: 'Google Store',
+                    total: 27.50,
+                    subtotal: 22.50,
+                    revenue: 25.00,
+                    shipping: 3,
+                    tax: 2,
+                    discount: 2.5,
+                    coupon: 'hasbros',
+                    currency: 'USD',
+                    products: [
+                        {
+                            product_id: '505bd76785ebb509fc183733',
+                            sku: '46493-32',
+                            name: 'Uno Card Game',
+                            price: 3,
+                            quantity: 2,
+                            category: 'Games'
+                        }
+                    ]
+                })
+            }, 5000);
         }
     </script>
 </head>
 
 <body>
-    <p>GTM Page: Another random page testing GTM dataLayer reset <br />
-    <p><input type="button" class="idBtn" onclick="productList()" value="Product List Event"></p>
-    <p><input type="button" class="idBtn" onclick="orderComplete()" value="Order Completed Event"> </p>
-    </p>
+    <>GTM Page: Another random page testing GTM dataLayer reset
+        <input type="button" class="idBtn" onclick="productList()" value="Product List Event">
+        <input type="button" class="idBtn" onclick="orderComplete()" value="Order Completed Event">
+        </p>
 </body>
 
 </html>
