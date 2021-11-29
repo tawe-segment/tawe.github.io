@@ -134,8 +134,6 @@
         function logSubmit(event) {
 
             analytics.track("lead form submit");
-            const form = document.getElementById("Safari-test-Form")
-            console.log(form)
 
             const formEntries = new FormData(form).entries();
             console.log(formEntries)
@@ -143,6 +141,7 @@
             console.log(formData)
             event.preventDefault();
         }
+        const form = document.getElementById("Safari-test-Form")
         form.addEventListener('submit', logSubmit);
     </script>
 </body>
