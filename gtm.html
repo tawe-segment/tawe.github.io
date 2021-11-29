@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>GTM Page</title>
+    <script>
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK";; analytics.SNIPPET_VERSION = "4.15.3";
+                analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK", { integrations: { 'Friendbuy': false } });
+                analytics.page();
+            }
+        }();
+    </script>
+    <script>
+        function productList() {
+            analytics.track('Product List Viewed', {
+                list_id: 'hot_deals_1',
+                category: 'Deals',
+                products: [
+                    {
+                        product_id: '507f1f77bcf86cd799439011',
+                        sku: '45790-32',
+                        name: 'Monopoly: 3rd Edition',
+                        price: 19,
+                        position: 1,
+                        category: 'Games',
+                        url: 'https://www.example.com/product/path',
+                        image_url: 'https://www.example.com/product/path.jpg'
+                    },
+                    {
+                        product_id: '505bd76785ebb509fc183733',
+                        sku: '46493-32',
+                        name: 'Uno Card Game',
+                        price: 3,
+                        position: 2,
+                        category: 'Games'
+                    }
+                ]
+            });
+        }
+        function orderComplete() {
+            window.dataLayer.push(function () {
+                this.reset();
+            })
+            //unknown impact but wait 5 seconds to ensure above code runs before track method
+            await new Promise(resolve => setTimeout(resolve, 5000));
+
+            //then track:
+            analytics.track('Order Completed', {
+                checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
+                order_id: '50314b8e9bcf000000000000',
+                affiliation: 'Google Store',
+                total: 27.50,
+                subtotal: 22.50,
+                revenue: 25.00,
+                shipping: 3,
+                tax: 2,
+                discount: 2.5,
+                coupon: 'hasbros',
+                currency: 'USD',
+                products: [
+                    {
+                        product_id: '505bd76785ebb509fc183733',
+                        sku: '46493-32',
+                        name: 'Uno Card Game',
+                        price: 3,
+                        quantity: 2,
+                        category: 'Games'
+                    }
+                ]
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <p>GTM Page: Another random page testing GTM dataLayer reset</p>
+    <p></p>
+    <input type="button" class="idBtn" onclick="productList()" value="Product List Event"> <br />
+    <input type="button" class="idBtn" onclick="orderComplete()" value="Order Completed Event"> <br />
+</body>
+
+</html>
