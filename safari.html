@@ -116,9 +116,7 @@
             event.preventDefault();
         }
 
-        const form = document.getElementById("Safari-test-Form")
-
-        const formEntries = new FormData(form).entries();
+        const formEntries = new FormData(document.getElementById("Safari-test-Form")).entries();
         const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({ [name]: value })));
         form.addEventListener('submit', logSubmit);
     </script>
