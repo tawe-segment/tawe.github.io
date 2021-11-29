@@ -116,14 +116,17 @@
             event.preventDefault();
         }
 
-        const formEntries = new FormData(document.getElementById("Safari-test-Form")).entries();
+        const form = document.getElementById("Safari-test-Form")
+        console.log(form)
+
+        const formEntries = new FormData(form).entries();
         const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({ [name]: value })));
         form.addEventListener('submit', logSubmit);
     </script>
 </head>
 
 <body>
-    <form name="Safari-test-Form">
+    <form name="Safari-test-Form" id="Safari-test-Form">
         <ul class="form-style-1">
             <li><label>Full Name <span class="required">*</span></label><input type="text" name="field1"
                     class="field-divided" placeholder="First" /> <input type="text" name="field2" class="field-divided"
