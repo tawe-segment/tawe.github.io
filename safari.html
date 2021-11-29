@@ -117,7 +117,6 @@
         }
 
         const form = document.getElementById("Safari-test-Form")
-        console.log(form)
 
         const formEntries = new FormData(form).entries();
         const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({ [name]: value })));
