@@ -109,19 +109,6 @@
             }
         }();
     </script>
-    <script>
-        function logSubmit(event) {
-            // analytics.track("lead form submit");
-            console.log(formData)
-            event.preventDefault();
-        }
-
-        const form = document.getElementById("Safari-test-Form")
-
-        const formEntries = new FormData(form).entries();
-        const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({ [name]: value })));
-        form.addEventListener('submit', logSubmit);
-    </script>
 </head>
 
 <body>
@@ -151,6 +138,19 @@
             </li>
         </ul>
     </form>
+    <script>
+        function logSubmit(event) {
+            // analytics.track("lead form submit");
+            console.log(formData)
+            event.preventDefault();
+        }
+
+        const form = document.getElementById("Safari-test-Form")
+
+        const formEntries = new FormData(form).entries();
+        const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({ [name]: value })));
+        form.addEventListener('submit', logSubmit);
+    </script>
 </body>
 
 </html>
