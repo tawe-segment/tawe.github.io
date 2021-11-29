@@ -122,6 +122,14 @@
                 <input type="email" name="field3" value="" class="field-long" />
             </li>
             <li>
+                <label>Subject</label>
+                <select name="field4" class="field-select">
+                    <option value="Advertise">Advertise</option>
+                    <option value="Partnership">Partnership</option>
+                    <option value="General Question">General</option>
+                </select>
+            </li>
+            <li>
                 <label>Your Message <span class="required">*</span></label>
                 <textarea name="field5" id="field5" class="field-long field-textarea" value=""></textarea>
             </li>
@@ -133,13 +141,12 @@
     <script>
         function logSubmit(event) {
 
-            analytics.track("lead form submit");
-
             const formEntries = new FormData(form).entries();
-            console.log(formEntries)
             const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({ [name]: value })));
             console.log(formData)
             event.preventDefault();
+            analytics.track("lead form submit", formData);
+            analytics.identify("lead form submit", formData);
         }
         const form = document.getElementById("Safari-test-Form")
         form.addEventListener('submit', logSubmit);
