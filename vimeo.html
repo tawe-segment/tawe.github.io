@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=700,maximum-scale=1.0,user-scalable=yes">
+    <title>Vimeo</title>
+    <script>
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK"; analytics.SNIPPET_VERSION = "4.15.3";
+                analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK");
+                analytics.page();
+            }
+        }();
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <hgroup>
+            <h1>Vimeo Segment Example</h1>
+        </hgroup>
+        <div class="container">
+            <div>
+                <h2>Vimeo Player 1</h2>
+                <iframe src="https://player.vimeo.com/video/651587367" width="640" height="360" frameborder="0"
+                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+                <script>
+                    var iframe = document.querySelector('iframe');
+                    console.log(iframe)
+                    var player = new Vimeo.Player(iframe);
+                    cosole.log(player)
+
+                    analytics.ready(function () {
+                        var VimeoAnalytics = window.analytics.plugins.VimeoAnalytics
+                        var vimeoAnalytics = new VimeoAnalytics(player, 'e19a3d6d9cd1b19c5f6451807487227f')
+                        vimeoAnalytics.initialize()
+                    })
+                </script>
+            </div>
+        </div>
+
+
+</body>
+
+</html>
