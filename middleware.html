@@ -27,6 +27,7 @@
         var smw1 = function ({ payload, next, integrations }) {
             // console.log(payload.obj.event)
             console.log(payload.obj)
+            console.log(payload)
 
             if (payload.obj.event) { //truthy when analytics.track() is called - falsey for any other methods.
                 var props = payload.obj.properties; //store the Segment event properties inside props variable
