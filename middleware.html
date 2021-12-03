@@ -26,11 +26,15 @@
     <script>
         var smw1 = function ({ payload, next, integrations }) {
             // console.log(payload.obj.event)
-            console.log(payload.obj)
-            console.log(payload)
+            // console.log(payload.obj)
+            // console.log(payload)
 
             if (payload.obj.event) { //truthy when analytics.track() is called - falsey for any other methods.
+                var userId = analytics.user().id(); //the Segment userid
+                var anonymousId = analytics.user().anonymousId(); //the Segment anonymousId
                 var props = payload.obj.properties; //store the Segment event properties inside props variable
+                if (userId) props.userId = userId; //store the Segment user id inside props variable
+                if (anonymousId) props.segmentAnonymousId = anonymousId; //store the Segment anonymousId inside props variable
                 props.event = payload.obj.event; //add the event name into props variable
                 // console.log(props)
                 dataLayer.push(props) //push props into the dataLayer
