@@ -25,13 +25,13 @@
     </script>
     <script>
         var smw1 = function ({ payload, next, integrations }) {
-            console.log(payload.obj.event)
-            console.log(payload.obj)
+            // console.log(payload.obj.event)
+            // console.log(payload.obj)
 
             if (payload.obj.event) { //truthy when analytics.track() is called - falsey for any other methods.
                 var props = payload.obj.properties; //store the Segment event properties inside props variable
                 props.event = payload.obj.event; //add the event name into props variable
-                console.log(props)
+                // console.log(props)
                 dataLayer.push(props) //push props into the dataLayer
             }
             next(payload); //deliver the payload to Segment servers 
