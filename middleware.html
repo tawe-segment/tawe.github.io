@@ -28,14 +28,15 @@
             console.log(payload.obj.event)
             console.log(payload.obj)
 
-            if (payload.obj.event) {
-                var props = payload.obj.properties;
-                props.event = payload.obj.event;
+            if (payload.obj.event) { //truthy when analytics.track() is called - falsey for any other methods.
+                var props = payload.obj.properties; //store the Segment event properties inside props variable
+                props.event = payload.obj.event; //add the event name into props variable
                 console.log(props)
+                dataLayer.push(props) //push props into the dataLayer
             }
-            next(payload);
+            next(payload); //deliver the payload to Segment servers 
         };
-        analytics.addSourceMiddleware(smw1);
+        analytics.addSourceMiddleware(smw1); //activate/add the source middleware to ajs
     </script>
     <!-- <script>
         var smw4 = function ({ payload, next, integrations }) {
