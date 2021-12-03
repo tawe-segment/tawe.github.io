@@ -1,14 +1,18 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
+<!DOCTYPE html>
+<html>
+
+<head>
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Random Page</title> 
+    <title>Random Page</title>
     <script>
-        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="wOSUOOubBvU6lqF47Y52plMlMiAbvUXQ";;analytics.SNIPPET_VERSION="4.15.3";
-        analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK",{ integrations: { All: false, 'CleverTap': true, 'Segment.io': true } });
-        analytics.page();
-        }}();
-      </script>
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "wOSUOOubBvU6lqF47Y52plMlMiAbvUXQ";; analytics.SNIPPET_VERSION = "4.15.3";
+                analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK", { integrations: { All: false, 'CleverTap': true, 'Segment.io': true } });
+                analytics.page();
+            }
+        }();
+    </script>
     <script type="text/javascript">
         var userId;
 
@@ -19,39 +23,41 @@
             analytics.identify(userId);
             analytics.page();
         }
-        
-        function cleverTap(e){
-        e.preventDefault();
-        var form = e.target;
-        var email = form["email"].value;
-        var fullname = form["fullname"].value;
-        var food =  form["fav-food"].value;
-        var data = {
-            email: email, 
-            name: fullname,
-            fav_food: food,
-        };
 
-        analytics.identify(userId, {
-            email: email, 
-            name: fullname
-        });
+        function cleverTap(e) {
+            e.preventDefault();
+            var form = e.target;
+            var email = form["email"].value;
+            var fullname = form["fullname"].value;
+            var food = form["fav-food"].value;
+            var data = {
+                // email: email,
+                name: fullname,
+                fav_food: food,
+            };
 
-        analytics.track('CleverTap Submitted', data,
-        function(){});
+            analytics.identify(userId, {
+                email: email,
+                // name: fullname
+            });
+
+            analytics.track('GitHub CleverTap Submitted', data,
+                function () { });
         }
     </script>
-</head> 
+</head>
+
 <body>
-<p>Just Another Page: CleverTap only</p>
-<form id="travel-form" name="travel" onsubmit="cleverTap(event)">
-    <label for="fullname">Full Name <em>&#x2a;</em></label>
+    <p>Just Another Page: CleverTap only</p>
+    <form id="travel-form" name="travel" onsubmit="cleverTap(event)">
+        <label for="fullname">Full Name <em>&#x2a;</em></label>
         <input id="fullname" name="fullname" required="" type="text" />
-    <label for="email">Email <em>&#x2a;</em></label>
+        <label for="email">Email <em>&#x2a;</em></label>
         <input id="email" name="email" required="" type="email" />
-    <label for="fav-food">Fav Food <em>&#x2a;</em></label>
+        <label for="fav-food">Fav Food <em>&#x2a;</em></label>
         <input id="fav-food" name="fav-food" required="" type="fav-food" />
-    <button id="submitForm">SUBMIT</button>
-</form>
-</body> 
+        <button id="submitForm">SUBMIT</button>
+    </form>
+</body>
+
 </html>
