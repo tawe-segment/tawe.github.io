@@ -27,7 +27,12 @@
         var smw1 = function ({ payload, next, integrations }) {
             console.log(payload.obj.event)
             console.log(payload.obj)
-            console.log(payload)
+
+            if (payload.obj.event) {
+                var props = payload.obj.properties;
+                props.event = payload.obj.event;
+                console.log(props)
+            }
             next(payload);
         };
         analytics.addSourceMiddleware(smw1);
