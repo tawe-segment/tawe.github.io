@@ -28,6 +28,7 @@
             console.log(payload.obj)
             next(payload);
         };
+        analytics.addSourceMiddleware(smw1);
     </script>
     <!-- <script>
         var smw4 = function ({ payload, next, integrations }) {
