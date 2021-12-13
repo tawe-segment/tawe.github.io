@@ -13,22 +13,18 @@
         }();
     </script>
     <script>
-        var sessionId = "1577777000"
+        var sessionId = "1577871000"
         analytics.identify('TEST10002', {
             firstName: 'Segment Testing',
-        },
-            {
-                session_id: sessionId
-            });
+        });
         analytics.page({}, {
             session_id: sessionId
         })
         analytics.track('Actions Event', {
             param: "param_1"
-        },
-            {
-                session_id: sessionId
-            });
+        }, {
+            session_id: sessionId
+        });
 
     </script>
 </head>
