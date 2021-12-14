@@ -20,11 +20,11 @@
                 console.log(payload)
                 next(payload); //deliver the payload to Segment servers 
             };
-            analytics.identify("97980cfea0067", {
-                name: "Peter Gibbons",
-                email: "peter@example.com",
-                plan: "premium"
-            });
+            // analytics.identify("97980cfea0067", {
+            //     name: "Peter Gibbons",
+            //     email: "peter@example.com",
+            //     plan: "premium"
+            // });
             analytics.addSourceMiddleware(smw1); //activate/add the source middleware to ajs
         }
 
