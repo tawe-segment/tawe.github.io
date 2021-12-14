@@ -17,6 +17,7 @@
 
         var smw1 = async function ({ payload, next, integrations }) {
             console.log(payload)
+            console.log(payload.obj.context.page.url)
             next(payload); //deliver the payload to Segment servers 
         };
         analytics.addSourceMiddleware(smw1); //activate/add the source middleware to ajs
