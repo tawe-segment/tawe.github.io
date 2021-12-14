@@ -27,20 +27,25 @@
         //Store as "results"
         var results = Object.fromEntries(Object.entries(output).filter(value => value[1]))
 
+        var has_utm = false //
+
         var smw1 = async function ({ payload, next, integrations }) {
             console.log(payload)
             console.log(payload.obj.context.page.url)
 
             //check if utms are already set as traits in local storage - 
             //if yes set utm_exists to "true" and don't attach to payload
-            var utm_campaign_traits = analytics.user().traits().utm_campaign ? true : false
-            var utm_medium_traits = analytics.user().traits().utm_medium ? true : false
-            var utm_source_traits = analytics.user().traits().utm_source ? true : false
+            // var utm_campaign_traits = analytics.user().traits().utm_campaign ? true : false
+            // var utm_medium_traits = analytics.user().traits().utm_medium ? true : false
+            // var utm_source_traits = analytics.user().traits().utm_source ? true : false
 
-            if (!(utm_campaign_traits && utm_medium_traits && utm_source_traits) && payload.obj.type == 'identify') {
+            // if (!(utm_campaign_traits && utm_medium_traits && utm_source_traits) && payload.obj.type == 'identify') {
+            if (!analytics.user().traits().has_utm && payload.obj.type == 'identify') {
                 payload.obj.traits.utm_campaign = results.utm_campaign
                 payload.obj.traits.utm_medium = results.utm_medium
                 payload.obj.traits.utm_source = results.utm_source
+                payload.obj.traits.has_utm = true
+                has_utm = true
             };
 
             next(payload); //deliver the payload to Segment servers 
@@ -50,7 +55,9 @@
         analytics.identify("97980cfea0067", {
             name: "Peter Gibbons",
             email: "peter@example.com",
-            plan: "premium"
+            plan: "premium",
+            utm_exist: has_utm
+
         });
     </script>
 </head>
