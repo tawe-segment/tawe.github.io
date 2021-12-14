@@ -38,11 +38,13 @@
             var utm_campaign_traits = analytics.user().traits().utm_campaign ? true : false
             var utm_medium_traits = analytics.user().traits().utm_medium ? true : false
             var utm_source_traits = analytics.user().traits().utm_source ? true : false
+            utm_exists = true
 
             if (!(utm_campaign_traits && utm_medium_traits && utm_source_traits) && payload.obj.type == 'identify') {
                 payload.obj.traits.utm_campaign = results.utm_campaign
                 payload.obj.traits.utm_medium = results.utm_medium
                 payload.obj.traits.utm_source = results.utm_source
+                payload.obj.traits.utm_exists = utm_exists
             };
             next(payload); //deliver the payload to Segment servers 
         };
@@ -57,7 +59,6 @@
 
 <body>
     <p>Testing UTM from payload as identify trait
-        <!-- <input type="button" class="idBtn" onclick="identifyMW()" value="Trigger Identify"> -->
     </p>
 </body>
 
