@@ -42,7 +42,9 @@
                 payload.obj.traits.utm_medium = results.utm_medium
                 payload.obj.traits.utm_source = results.utm_source
             };
+
             next(payload); //deliver the payload to Segment servers 
+
         };
         analytics.addSourceMiddleware(smw1); //activate/add the source middleware to ajs
         analytics.identify("97980cfea0067", {
