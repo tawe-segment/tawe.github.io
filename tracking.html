@@ -29,7 +29,7 @@
 
         var has_utm = false //
 
-        var smw1 = async function ({ payload, next, integrations }) {
+        var smw1 = function ({ payload, next, integrations }) {
             console.log(payload)
             console.log(payload.obj.context.page.url)
 
@@ -44,7 +44,7 @@
                 payload.obj.traits.utm_campaign = results.utm_campaign
                 payload.obj.traits.utm_medium = results.utm_medium
                 payload.obj.traits.utm_source = results.utm_source
-                payload.obj.traits.has_utm = true
+                payload.obj.traits.utm_exist = true
                 has_utm = true
             };
 
