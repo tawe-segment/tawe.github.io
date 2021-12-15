@@ -39,8 +39,12 @@
             mixpanel.register({
                 "$device": device_type
             });
-            analytics.page()
+            analytics.page("Mixpanel Page")
         });
+
+    </script>
+    <script>
+        analytics.track("Mixpanel Event")
     </script>
 </head>
 
