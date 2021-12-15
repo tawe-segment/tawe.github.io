@@ -37,7 +37,7 @@
             }
             var device_type = getUA();
             mixpanel.register({
-                "device": device_type
+                "$device": device_type
             });
             analytics.page()
         });
