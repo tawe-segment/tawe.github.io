@@ -9,38 +9,39 @@
             var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
                 analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK";; analytics.SNIPPET_VERSION = "4.15.3";
                 analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK");
+
+                analytics.ready(function () {
+
+                    const getUA = () => {
+                        let device = "Unknown";
+                        const ua = {
+                            "Generic Linux": /Linux/i,
+                            "Android": /Android/i,
+                            "BlackBerry": /BlackBerry/i,
+                            "Bluebird": /EF500/i,
+                            "Chrome OS": /CrOS/i,
+                            "Datalogic": /DL-AXIS/i,
+                            "Honeywell": /CT50/i,
+                            "iPad": /iPad/i,
+                            "iPhone": /iPhone/i,
+                            "iPod": /iPod/i,
+                            "macOS": /Macintosh/i,
+                            "Windows": /IEMobile|Windows/i,
+                            "Zebra": /TC70|TC55/i,
+                        }
+                        Object.keys(ua).map(v => navigator.userAgent.match(ua[v]) && (device = v));
+                        return device;
+                    }
+                    var device_type = getUA();
+                    analytics.page("Mixpanel Page")
+                    mixpanel.register({
+                        "$device": device_type
+                    });
+                });
             }
         }();
     </script>
     <script>
-        analytics.ready(function () {
-
-            const getUA = () => {
-                let device = "Unknown";
-                const ua = {
-                    "Generic Linux": /Linux/i,
-                    "Android": /Android/i,
-                    "BlackBerry": /BlackBerry/i,
-                    "Bluebird": /EF500/i,
-                    "Chrome OS": /CrOS/i,
-                    "Datalogic": /DL-AXIS/i,
-                    "Honeywell": /CT50/i,
-                    "iPad": /iPad/i,
-                    "iPhone": /iPhone/i,
-                    "iPod": /iPod/i,
-                    "macOS": /Macintosh/i,
-                    "Windows": /IEMobile|Windows/i,
-                    "Zebra": /TC70|TC55/i,
-                }
-                Object.keys(ua).map(v => navigator.userAgent.match(ua[v]) && (device = v));
-                return device;
-            }
-            var device_type = getUA();
-            mixpanel.register({
-                "$device": device_type
-            });
-            analytics.page("Mixpanel Page")
-        });
     </script>
     <script>
         analytics.track("Mixpanel Event")
