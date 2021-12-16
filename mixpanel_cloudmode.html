@@ -40,7 +40,10 @@
 
             console.log(device_type)
 
-            payload.obj.properties.Device = device_type; //adds Device property to the payload
+            //adds Device as traits for identify or property for events
+            payload.obj.event = "identify" ? payload.obj.traits.Device = device_type : payload.obj.properties.Device = device_type
+
+            // payload.obj.properties.Device = device_type; 
             next(payload); //delivers the payload to Segment servers 
         };
         analytics.addSourceMiddleware(smw1); //activate/add the source middleware to ajs
