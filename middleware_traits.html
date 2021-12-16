@@ -13,40 +13,36 @@
         }();
     </script>
     <script>
-        function pandoMW() {
-            var firstName = 'Tob';
-            var lastName = 'Tester';
-            var contact = 'tob_tester@tester123.com';
+        var firstName = 'Tob1';
+        var lastName = 'Tester1';
+        var contact = 'tob_tester@tester1234.com';
 
-            var pandoMW1 = async function ({ payload, next, integration }) {
-                console.log(payload)
+        var pandoMW1 = async function ({ payload, next, integration }) {
+            console.log(payload)
 
-                //remove all traits in the payload (or you can selectively remove)
-                payload.obj.traits = {}
+            //remove all traits in the payload (or you can selectively remove)
+            payload.obj.traits = {}
 
-                //add the correct object names you want as traits
-                payload.obj.traits.name = firstName + " " + lastName;
-                payload.obj.traits.email = contact;
-                next(payload);
-            }
-            analytics.addDestinationMiddleware('Pando', [pandoMW1]);
-
-            //default traits key/values are from firstName, lastName and contact above (line 17 - 19)
-            // but the above middleware will change it to name, email for Pando (line 28 - 29)
-            analytics.identify('001456577851', {
-                firstName: firstName,
-                lastName: lastName,
-                contact: contact
-            });
-
+            //add the correct object names you want as traits
+            payload.obj.traits.name = firstName + " " + lastName;
+            payload.obj.traits.email = contact;
+            next(payload);
         }
+        analytics.addDestinationMiddleware('Pando', [pandoMW1]);
+
+        //default traits key/values are from firstName, lastName and contact above (line 17 - 19)
+        // but the above middleware will change it to name, email for Pando (line 28 - 29)
+        analytics.identify('56577851', {
+            firstName: firstName,
+            lastName: lastName,
+            contact: contact
+        });
+
     </script>
 </head>
 
 <body>
     <p>Just Another Page: Blank with no spec for browser console usage
-        <input type="button" class="idBtn" onclick="pandoMW()" value="Identify">
-
     </p>
 </body>
 
