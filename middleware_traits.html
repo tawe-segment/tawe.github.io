@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Destination Middleware Page</title>
+    <title>Pendo Middleware Page</title>
     <script>
         !function () {
             var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
@@ -17,7 +17,7 @@
         var lastName = 'Tester1';
         var contact = 'tob_tester@tester1234.com';
 
-        var pandoMW1 = async function ({ payload, next, integration }) {
+        var pendoMW1 = async function ({ payload, next, integration }) {
             console.log(payload)
 
             //remove all traits in the payload (or you can selectively remove)
@@ -28,7 +28,7 @@
             payload.obj.traits.email = contact;
             next(payload);
         }
-        analytics.addDestinationMiddleware('Pando', [pandoMW1]);
+        analytics.addDestinationMiddleware('Pendo', [pendoMW1]);
 
         //default traits key/values are from firstName, lastName and contact above (line 17 - 19)
         // but the above middleware will change it to name, email for Pando (line 28 - 29)
@@ -41,7 +41,7 @@
 </head>
 
 <body>
-    <p>Just Another Page: Blank with no spec for browser console usage
+    <p>Just Another Page: Pendo identify with MW
     </p>
 </body>
 
