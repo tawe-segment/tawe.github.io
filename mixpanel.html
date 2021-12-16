@@ -32,11 +32,9 @@
                     }
                     var device_type = getUA();
                     console.log(device_type)
-
                     mixpanel.register({
                         "Device": device_type
                     });
-
                     analytics.page("Mixpanel Page - DM") //DM = device mode
                 });
             }
