@@ -20,17 +20,19 @@
         var pendoMW1 = async function ({ payload, next, integration }) {
             console.log(payload)
 
-            //remove all traits in the payload (or you can selectively remove)
-            payload.obj.traits = {}
+            if (payload.obj.type == "identify") {
+                //remove all traits in the payload (or you can selectively remove)
+                payload.obj.traits = {}
 
-            //add the correct object names you want as traits
-            payload.obj.traits.name = firstName + " " + lastName;
-            payload.obj.traits.email = contact;
+                //add the correct object names you want as traits
+                payload.obj.traits.name = firstName + " " + lastName;
+                payload.obj.traits.email = contact;
+            }
             next(payload);
         }
         analytics.addDestinationMiddleware('Pendo', [pendoMW1]);
 
-        //default traits key/values are from firstName, lastName and contact above (line 17 - 19)
+        //default traits key/values are from firstName, lastName and contact above (line 16 - 18)
         // but the above middleware will change it to name, email for Pando (line 28 - 29)
         analytics.identify('001pendo00244', {
             firstName: firstName,
