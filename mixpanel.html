@@ -31,8 +31,11 @@
                         Object.keys(ua).map(v => navigator.userAgent.match(ua[v]) && (device = v));
                         return device;
                     }
+                    var device_type = getUA();
+                    console.log(device_type)
+
                     mixpanel.register({
-                        "$Device": getUA() //returns device type parsed from userAgent
+                        "Device": device_type
                     });
                 });
             }
