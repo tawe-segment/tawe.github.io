@@ -35,6 +35,8 @@
                     }
                     var device_type = getUA();
                     console.log(device_type)
+
+                    //call native mixpanel method to add Device property when the Segment payload is flighted to Mixpanel SDK
                     mixpanel.register({
                         "Device": device_type
                     });
