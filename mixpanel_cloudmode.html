@@ -41,7 +41,6 @@
             console.log(device_type)
 
             //adds Device as traits for identify or property for events
-            // payload.obj.properties.Device = device_type; 
             payload.obj.type == "identify" ? payload.obj.traits.Device = device_type : payload.obj.properties.Device = device_type
 
             next(payload); //delivers the payload to Segment servers 
