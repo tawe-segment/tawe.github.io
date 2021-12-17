@@ -26,7 +26,7 @@
             */
 
             //override or add to payload before it hits segment servers
-            payload.obj.context.campaign['name'] = "override_campaign_name";
+            // payload.obj.context.campaign['name'] = "override_campaign_name";
             payload.obj.context = { ...payload.obj.context, campaign: "override_campaign_name" }
 
             // payload.obj.context["campaign"].source = "override_campaign_source";
