@@ -29,15 +29,7 @@
 
             payload.obj.context = { ...payload.obj.context, campaign: { name: "override_campaign_name", source: "override_campaign_source", content: "override_campaign_content", id: "override_campaign_id", medium: "override_campaign_medium", term: "override_campaign_term" } }
 
-            // payload.obj.context.campaign['name'] = "override_campaign_name";
-            // payload.obj.context["campaign"].source = "override_campaign_source";
-            // payload.obj.context["campaign"].content = "override_campaign_content";
-            // payload.obj.context["campaign"].id = "override_campaign_id";
-            // payload.obj.context["campaign"].medium = "override_campaign_medium";
-            // payload.obj.context["campaign"].term = "override_campaign_term";
-
             next(payload); //delivers the payload to Segment servers 
-
         };
         analytics.addSourceMiddleware(contextMW1); //activate/add the source middleware to ajs
 
