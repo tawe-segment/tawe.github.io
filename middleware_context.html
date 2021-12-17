@@ -3,23 +3,45 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Blank Page (Legacy Source)</title>
+    <title>Context Middleware Testing Page</title>
     <script>
         !function () {
             var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
                 analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "KUYGv6h8eTdrj37j25iNUkqTGqtFGPtH";; analytics.SNIPPET_VERSION = "4.15.3";
                 analytics.load("KUYGv6h8eTdrj37j25iNUkqTGqtFGPtH");
-                analytics.track('click', {
-                    category: 'content_accordion_tobi',
-                    label: 'How does it work xyz'
-                })
             }
         }();
+    </script>
+    <script>
+        var contextMW1 = function ({ payload, next, integrations }) {
+            console.log(payload)
+
+            // var qs = document.location.search.substring(1); //get query string from url
+            /*
+
+                some logic here to validate the query strings containing your utms
+                ...
+                ...
+                ...
+            */
+
+            //override or add to payload before it hits segment servers
+            payload.obj.context.campaign.name = "override_campaign_name";
+            payload.obj.context.campaign.source = "override_campaign_source";
+            payload.obj.context.campaign.content = "override_campaign_content";
+            payload.obj.context.campaign.id = "override_campaign_id";
+            payload.obj.context.campaign.medium = "override_campaign_medium";
+            payload.obj.context.campaign.term = "override_campaign_term";
+
+            next(payload); //delivers the payload to Segment servers 
+        };
+        analytics.addSourceMiddleware(contextMW1); //activate/add the source middleware to ajs
+
     </script>
 </head>
 
 <body>
-    <p>Just Another Page: Blank with no spec for browser console usage (Legacy Source)</p>
+    <p>Just Another Page: Context middleware sample</p>
 </body>
 
 </html>
