@@ -15,7 +15,7 @@
           console.log('Segment is Ready 1!');
           segmentAnonymousId = window.analytics.user().anonymousId();
           console.log(segmentAnonymousId)
-          window.analytics.user().anonymousId('1234565');
+          window.analytics.user().anonymousId(segmentAnonymousId);
           console.log(window.analytics.user().anonymousId())
           if (window.analytics.user().anonymousId() !== segmentAnonymousId) {
             console.log(`Expected segment anonymous ID (${window.analytics.user().anonymousId()}) to match anonId (${segmentAnonymousId}))`);
