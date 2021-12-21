@@ -14,7 +14,7 @@
         analytics.ready(() => {
           segmentAnonymousId = window.analytics.user().anonymousId();
           console.log(segmentAnonymousId)
-          analytics.setAnonymousId(segmentAnonymousId);
+          analytics.setAnonymousId('1234565');
           console.log(window.analytics.user().anonymousId())
           if (window.analytics.user().anonymousId() !== segmentAnonymousId) {
             throw new Error(
