@@ -11,8 +11,9 @@
         analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK");
         analytics.page("1");
         console.log('Segment is Loading..');
-        segmentAnonymousId = window.analytics.user().anonymousId();
+        // segmentAnonymousId = window.analytics.user().anonymousId();
         analytics.ready(function () {
+          segmentAnonymousId = window.analytics.user().anonymousId();
           console.log(segmentAnonymousId)
           window.analytics.user().anonymousId(segmentAnonymousId);
           console.log(window.analytics.user().anonymousId())
