@@ -18,6 +18,7 @@
             throw new Error(
               `Expected segment anonymous ID (${analytics.user().anonymousId()}) to match anonId (${segmentAnonymousId})`);
           }
+          analytics.page()
         });
       }
     }();
