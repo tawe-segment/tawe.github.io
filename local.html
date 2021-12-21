@@ -18,7 +18,7 @@
                     console.log(`Debug 1: idFromSegment is currently: (${idFromSegment})`);
 
                     const segmentAnonymousId = idFromSegment || "12345Random12345";
-                    const segmentAnonymousId = window.analytics.user().anonymousId() || "12345Random12345";
+                    // const segmentAnonymousId = window.analytics.user().anonymousId() || "12345Random12345";
                     console.log(`Debug 2: segmentAnonymousId is currently: (${segmentAnonymousId})`);
 
                     window.analytics.setAnonymousId(segmentAnonymousId);
