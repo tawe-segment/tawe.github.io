@@ -2,41 +2,44 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Local Page</title>
-    <script>
-        !function () {
-            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
-                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK";; analytics.SNIPPET_VERSION = "4.15.3";
-                analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK", { integrations: { All: false, 'segment.io': true } });
-                console.log(`Debug 0: Load Called`)
-                analytics.page();
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>Local Page</title>
+  <script>
+    !function () {
+      var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+        analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK";; analytics.SNIPPET_VERSION = "4.15.3";
+        analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK", { integrations: { All: false, 'segment.io': true } });
+        console.log(`Debug 0: Load Called`)
+        // analytics.page();
 
-                analytics.ready(function () {
-                    // const idFromSegment = window.analytics.user().anonymousId() || "null";
+        const Cookies = new URLSearchParams(document.cookie.replaceAll("; ", "&"))
 
-                    // console.log(`Debug 1: idFromSegment is currently: (${idFromSegment})`);
+        const idFromSegment = JSON.parse(
+          Cookies.get("ajs_anonymous_id") ||
+          window.localStorage?.getItem("ajs_anonymous_id") ||
+          "null",
+        );
+        console.log(`Debug 1: idFromSegment set to (${idFromSegment})`)
 
-                    // const segmentAnonymousId = idFromSegment || "12345Random12345";
-                    const segmentAnonymousId = window.analytics.user().anonymousId() || "12345Random12345";
-                    console.log(`Debug 2: segmentAnonymousId is currently: (${segmentAnonymousId})`);
+        const segmentAnonymousId = idFromSegment || "1234MOCK_UUID4";
+        console.log(`Debug 2: segmentAnonymousId set to (${segmentAnonymousId})`)
 
-                    window.analytics.setAnonymousId(segmentAnonymousId);
-                    console.log(`Debug 3: setAnonymousId to (${window.analytics.user().anonymousId()})`);
+        window.analytics.setAnonymousId(segmentAnonymousId);
+        console.log(`Debug 3: Called setAnonymousId with value (${segmentAnonymousId})`)
 
-                    if (window.analytics.user().anonymousId() !== segmentAnonymousId) {
-                        console.log(`Ready: Expected segment anonymous ID (${window.analytics.user().anonymousId()}) to match anonId (${segmentAnonymousId}))`);
-                    }
-                    console.log('Segment is Ready!');
-                    console.log(`Shipping (${segmentAnonymousId}) somewhere.... when Ready completes`)
-                });
+        analytics.ready(function () {
+          console.log(`Debug 4: Checking Segments AnonymousId is currently (${window.analytics.user().anonymousId()})`)
+          if (window.analytics.user().anonymousId() !== segmentAnonymousId) {
+            console.log(`Error: Expected segment anonymous ID (${window.analytics.user().anonymousId()}) to match anonId (${segmentAnonymousId}))`);
+          }
+          console.log('Segment is Ready!');
+        });
 
-
-                // // analytics.page();
-            }
-        }();
-    </script>
-    <!-- 
+        console.log(`Shipping (${segmentAnonymousId}) somewhere....`)
+      }
+    }();
+  </script>
+  <!-- 
       <script>
         let page_title = "Home Page";
         let page_type = "article";
@@ -65,7 +68,7 @@
 </head>
 
 <body>
-    <p>Just Another Page: Blank with no spec for browser console usage</p>
+  <p>Just Another Page: Blank with no spec for browser console usage</p>
 </body>
 
 </html>
