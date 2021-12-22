@@ -28,6 +28,8 @@
         window.analytics.setAnonymousId(segmentAnonymousId);
         console.log(`Debug 3: Called setAnonymousId with value (${segmentAnonymousId})`)
 
+
+
         analytics.ready(function () {
           console.log(`Debug 4: Checking Segments AnonymousId is currently (${window.analytics.user().anonymousId()})`)
           if (window.analytics.user().anonymousId() !== segmentAnonymousId) {
@@ -35,40 +37,17 @@
           }
           console.log('Segment is Ready!');
         });
+
+        console.log(`Final segmentAnonymousId to ship is (${segmentAnonymousId})`);
       }
     }();
 
   </script>
-  <!-- 
-      <script>
-        let page_title = "Home Page";
-        let page_type = "article";
 
-        if(page_type === "non-article"){
-          analytics.page(page_title, {}, {
-            context: {
-              protocols: {
-                event_version: 1
-              }
-            }
-          }); 
-        } else {
-          page_title = "Some Article";
-          analytics.page(page_title, {
-            'Author Name': 'Tobi Segment',
-          }, {
-            context: {
-              protocols: {
-                event_version: 2
-              }
-            }
-          }); 
-        }
-      </script> -->
 </head>
 
 <body>
-  <p>Just Another Page: Blank with no spec for browser console usage</p>
+  <p>Just Another Page: Some random tests</p>
 </body>
 
 </html>
