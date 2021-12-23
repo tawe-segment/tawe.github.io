@@ -13,7 +13,8 @@
         console.log(`Debug 0: Load Called`)
         // analytics.page();
 
-        const Cookies = new URLSearchParams(document.cookie.replaceAll("; ", "&"))
+        const Cookies = new URLSearchParams(document.cookie.replaceAll("; ", "&"));
+        const MockUUID = window.URL.createObjectURL(new Blob([])).substr(-21);
 
         const idFromSegment = JSON.parse(
           Cookies.get("ajs_anonymous_id") ||
@@ -22,7 +23,7 @@
         );
         console.log(`Debug 1: idFromSegment set to (${idFromSegment})`)
 
-        const segmentAnonymousId = idFromSegment || "1234MOCK_UUID4";
+        const segmentAnonymousId = idFromSegment || MockUUID;
         console.log(`Debug 2: segmentAnonymousId set to (${segmentAnonymousId})`)
 
         window.analytics.setAnonymousId(segmentAnonymousId);
