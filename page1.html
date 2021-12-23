@@ -24,7 +24,10 @@
     </p>
     <script>
         var page2Link = document.getElementById("page2_link");
-        analytics.trackLink(page2_link, 'Page 2 Opened');
+        analytics.trackLink(page2_link, 'My Custom Event', {
+            name: 'Page 2 Clicked',
+            source: 'Page 1'
+        });
     </script>
 </body>
 
