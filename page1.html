@@ -14,13 +14,25 @@
             }
         }();
     </script>
+    <script>
+        //trackFunction
+        function trackFunction(id) {
+            var event = `${id}` + " Clicked";
+            console.log(event);
+            analytics.track(event, {
+                name: 'Page2 v2 Clicked',
+                source: 'Page 1'
+            });
+        }
+    </script>
 </head>
 
 <body>
     <p>Just Another Page: Testing BTN Click + redirect with TrackLink <br />
         <a id="page2_link" href="page2" target="_blank"><input type="button" value="Open Page 2"></a>
-        <!-- <br>
-        <a id="page2_link_2" href="page2" target="_blank"><input type="button" value="Open Page 2 v2"></a> -->
+        <br>
+        <a id="page2_link_2" href="page2" target="_blank" onclick="trackFunction(this.id)"><input type="button"
+                value="Open Page 2 v2"></a>
     </p>
     <script>
         var page2Link = document.getElementById("page2_link");
