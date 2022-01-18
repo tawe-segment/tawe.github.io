@@ -53,10 +53,11 @@
     });
 
     //event 4
+    const mockOrder_id = window.URL.createObjectURL(new Blob([])).substr(-21)
     analytics.track("Order Completed", {
         email: 'xyz@segment.com',
         value: 20.5,
-        order_id: 'xyz1234567890xyz'
+        order_id: mockOrder_id
     });
 
 </script>
