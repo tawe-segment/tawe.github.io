@@ -26,8 +26,8 @@
     var fbMW1 = async function ({ payload, next, integration }) {
 
         //check if the event name is not contained in excludedEvent array and send downstream to facebook pixel
-        //if true, the event is dropped completely for Facebook only.
-        if (excludedEvent.includes(payload.obj.event) = false) {
+        //if it were truthy, the event is dropped completely for Facebook only.
+        if (!excludedEvent.includes(payload.obj.event)) {
             next(payload); //deliver the payload
         }
     }
