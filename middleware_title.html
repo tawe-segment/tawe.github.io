@@ -16,8 +16,14 @@
         var titleMW = function ({ payload, next, integrations }) {
             console.log(payload)
 
-            //override or add to payload before it hits segment servers
-            if (payload.obj.type == "track") { //optional conditional statement if wanted for track events only
+            /*
+            override or add to payload before it hits segment servers
+            +
+            optional conditional statement if wanted for track events only
+            */
+
+            // if (payload.obj.type == "track") { //analytics-next 2.0 
+            if (payload.obj.event) { //analytics-classic 1.0 version
                 payload.obj.context = {
                     ...payload.obj.context, page: {
                         title: "Overridden Page Title" //all titles in context will be replaced with this text
