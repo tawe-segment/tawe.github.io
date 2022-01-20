@@ -17,9 +17,11 @@
             console.log(payload)
 
             //override or add to payload before it hits segment servers
-            payload.obj.context = {
-                ...payload.obj.context, page: {
-                    title: "Overridden Page Title" //all titles in context will be replaced with this text
+            if (payload.obj.type === "track") { //optional conditional statement if wanted for track events only
+                payload.obj.context = {
+                    ...payload.obj.context, page: {
+                        title: "Overridden Page Title" //all titles in context will be replaced with this text
+                    }
                 }
             }
 
