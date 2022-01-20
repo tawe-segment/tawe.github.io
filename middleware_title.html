@@ -19,7 +19,7 @@
             //override or add to payload before it hits segment servers
             payload.obj.context = {
                 ...payload.obj.context, page: {
-                    title: "Overridden Page Title"
+                    title: "Overridden Page Title" //all titles in context will be replaced with this text
                 }
             }
 
@@ -27,7 +27,7 @@
         };
         analytics.addSourceMiddleware(titleMW); //activate/add the source middleware to ajs
 
-        analytics.page("SignUp Page");
+        analytics.page("Welcome Page");
         analytics.track("Signed Up");
     </script>
 </head>
