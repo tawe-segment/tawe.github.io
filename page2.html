@@ -35,11 +35,20 @@
 
       console.log(results)
 
-      // analytics.track("Marketo Form Submitted", { 
-      //     firstName:results.firstname,
-      //     lastName:results.lastname,
-      //     email:results.email,
-      //   });
+      analytics.page(
+        {},
+        {
+          context: {
+            campaign: {
+              source: results.utm_source ? results.utm_source : '',
+              name: results.utm_campaign ? results.utm_campaign : '',
+              medium: results.utm_medium ? results.utm_medium : '',
+              term: results.utm_term ? results.utm_term : '',
+              content: results.utm_content ? results.utm_content : ''
+            }
+          }
+        },
+      );
 
     }
 
