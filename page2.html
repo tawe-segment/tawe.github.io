@@ -9,47 +9,9 @@
       var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
         analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "wOSUOOubBvU6lqF47Y52plMlMiAbvUXQ";; analytics.SNIPPET_VERSION = "4.15.3";
         analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK");
-        // analytics.page("Page 2")
+        analytics.page("Page 2")
       }
     }();
-  </script>
-  <script>
-
-    var output = {};
-    var referrer = document.referrer.split('&'); //get query string from referrer url
-    console.log(referrer)
-    qs = referrer.split('?') //split again at "?"
-    console.log(qs)
-
-    //loop through each values in the above split and split at "="
-    //Store into output array
-    for (var i = 0; i < qs.length; i++) {
-      var tokens = qs[i].split('=');
-      output[tokens[0].toLowerCase()] = tokens[1];
-    }
-    //Remove object keys with empty values from output array
-    //Store as "results"
-    var results = Object.fromEntries(Object.entries(output).filter(value => value[1]))
-
-    console.log(results)
-
-    analytics.page(
-      {},
-      {
-        context: {
-          campaign: {
-            source: results.utm_source ? results.utm_source : '',
-            name: results.utm_campaign ? results.utm_campaign : '',
-            medium: results.utm_medium ? results.utm_medium : '',
-            term: results.utm_term ? results.utm_term : '',
-            content: results.utm_content ? results.utm_content : ''
-          }
-        }
-      },
-    );
-
-
-
   </script>
 </head>
 
