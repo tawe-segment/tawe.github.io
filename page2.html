@@ -16,9 +16,10 @@
   <script>
 
     var output = {};
-    var qs = document.referrer; //get query string from referrer url
+    var referrer = document.referrer.split('&'); //get query string from referrer url
+    console.log(referrer)
+    qs = referrer.split('?') //split again at "?"
     console.log(qs)
-    qs = qs.split('&'); //split at "&"
 
     //loop through each values in the above split and split at "="
     //Store into output array
