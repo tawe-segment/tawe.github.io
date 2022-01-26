@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Home Page</title>
+
+    <!--Start Placeholder for Segment Snippet -->
+    <script>
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK"; analytics.SNIPPET_VERSION = "4.13.2";
+                analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK", {
+                    integrations: {
+                        'Facebook Pixel': {
+                            automaticConfiguration: false
+                        }
+                    }
+                });
+                //   analytics.page({},{ integrations: {'Pinterest Tag': false,'Mixpanel':false,}});
+                analytics.page();
+            }
+        }();
+
+    </script>
+
+    <script type="text/javascript">
+        var guid = 'TCJ00022';
+        if (guid != '') {
+            var email = 'tobi.cj22@segmentest.com';
+            var fullName = 'ToBi CJ22';
+            analytics.identify(guid, {
+                name: fullName,
+                email: email
+            });
+            analytics.page();
+        }
+    </script>
+
+    <!--End Placeholder for Segment Snippet -->
+    <!--Start hardcorded tracking code -->
+    <script type="text/javascript">
+        var userId;
+
+        function idFunction(id) {
+            userId = id.name;
+            console.log(userId);
+            analytics.reset();
+            analytics.identify(userId);
+            analytics.page();
+        }
+
+        function identify(e) {
+            e.preventDefault();
+            var form = e.target;
+            var email = form["email"].value;
+            var fullname = form["fullname"].value;
+            var destination = form["destination"].value;
+            var details = form["details"].value;
+            var user = {
+                email: email,
+                name: fullname,
+                destination: destination,
+                details: details
+            };
+            analytics.identify(userId, {
+                email: email,
+                name: fullname
+            });
+            analytics.track('destination submitted', user, function () {
+                window.location.href = "";
+            });
+        }
+    </script>
+    <!--End hardcoded tracking code -->
+    <!--Start hardcorded fb identify -->
+    <script>
+        function fbIdentify() {
+            analytics.identify('TS000', {
+                name: 'Tobi Segment',
+                gender: 'Male',
+                email: 'XYZ@segment.com',
+                phone: '085750',
+                address: {
+                    city: 'San Francisco',
+                    state: 'Ca',
+                    postalCode: '94107'
+                },
+                // birthday:'2021-01-24', //0c6fe56e23604a5ebfaeb101bbdacf2df39afa6f4c311a647a3ee795aa74f40a
+                birthday: '1983-07-25', //0b2692fa6316a7e6228f3fb83f2cefc026191d45b35ad927e810c5b4e376f796
+            });
+            analytics.page();
+            analytics.track('Product Added', {
+                content_ids: ['1234', '1853', '9386'],
+                content_type: 'Grocery'
+            });
+        }
+    </script>
+    <!--End hardcoded fb identify -->
+    <!--Start hardcorded hub identify -->
+    <script>
+        function HubSpotIdentify() {
+            analytics.identify('JA999', {
+                email: 'jane.austen@wanabe.comx'
+            }, {}, {});
+            analytics.track('Signup', {
+                email: 'jane.austen@wanabe.comx'
+            }, {}, {});
+            analytics.page();
+        }
+    </script>
+    <!--End hardcoded hub identify -->
+    <!--Start hardcorded intercom identify -->
+    <script>
+        function InterIdentify() {
+            analytics.identify('john.doe@doe.comx', {
+                email: 'john.doe@doe.comx',
+                emailVerified: 'john.doe@doe.comx',
+                integrations: {
+                    All: true,
+                    Amplitude: true,
+                    Intercom: true
+                },
+                phone: '+6142623268',
+                phoneVerified: '+6142623268',
+                referralBonus: 62,
+                referralCode: 'b107b031-5a38-41d4-ba3d-17010bc49b6f',
+                referralLink: 'https://test.com',
+                referredBy: 'mentor@gmail.comxyz',
+                signupTimestamp: 1630469599424,
+                traits: {
+                    email: 'john.doe@doe.comx',
+                    emailVerified: 'john.doe@doe.comx',
+                    phone: '+6142623268',
+                    phoneVerified: '+6142623268',
+                    referralBonus: 62,
+                    referralCode: 'b107b031-5a38-41d4-ba3d-17010bc49b6f',
+                    referralLink: 'https://test.com',
+                    referredBy: 'mentor@gmail.comxyz',
+                    signupTimestamp: 1630469599424
+                }
+            });
+        }
+    </script>
+    <!--End hardcoded intercom identify -->
+    <!--Start hardcorded intercom page -->
+    <script>
+        function intercomPage() {
+            // analytics.identify('TS000', {
+            //     name: 'Tobi Segment',
+            //     gender: 'Male',
+            //     email: 'tobi_XYZ@segment.com',
+            //     phone: '085-750-4370',
+            //     address: {
+            //         city: 'San Francisco',
+            //         state: 'Ca',
+            //         postalCode: '94107'
+            //     }
+            // });
+            analytics.page({
+                title: "Another Page",
+                url: "https://tawe-segment.github.io/tawe.github.io/another_page/"
+            });
+            //     analytics.track('Page Viewed Test', function() {
+            //     window.location.href = "";
+            // });
+        }
+    </script>
+    <!--End hardcorded intercom page -->
+    <!--Start hardcorded EventListener -->
+    <!-- <script>
+        document.getElementById("add-to-cart").addEventListener("click", function(){
+            analytics.track('DOM AddToCart Clicked', {
+                type: 'DOM button'
+            });
+            console.log("AddToCart DOM Element Clicked");
+        });
+    </script> -->
+
+    <!-- <script>
+        document.getElementById("addToCart").addEventListener("click", function() {
+            analytics.track('DOM AddToCart Clicked', {
+                type: 'DOM button'
+            });
+            console.log("AddToCart DOM Element Clicked");
+        });
+    </script> -->
+    <!--End hardcorded EventListener  -->
+    <!--Start hardcorded Pinterest GTM ATC -->
+    <script>
+        function pintrack() {
+            // analytics.identify('TS000', {
+            //     name: 'Tobi Segment',
+            //     gender: 'Male',
+            //     email: 'tobi_XYZ@segment.com',
+            //     phone: '085-750-4370',
+            //     address: {
+            //         city: 'San Francisco',
+            //         state: 'Ca',
+            //         postalCode: '94107'
+            //     }
+            // });
+            analytics.track('Add Cart', {
+                product_id: "1414",
+                product_name: "Parker Boots",
+                product_price: 99.99
+            }
+            );
+
+            analytics.track('Product Added', {
+                product_id: "1414",
+                product_name: "Parker Boots",
+                price: 99.99
+            },
+                {
+                    context: {
+                        protocols: {
+                            event_version: 2
+                        }
+                    }
+                });
+            //     analytics.track('Page Viewed Test', function() {
+            //     window.location.href = "";
+            // });
+
+
+        }
+    </script>
+    <!--End hardcorded Pinterest GTM ATC-->
+    <script>
+        function IterIdentify() {
+            analytics.identify('JS5555', {
+                email: 'jack.bean@beanstalk.com'
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function Hubspot2() {
+            var guid = 'TCJ0001';
+            if (guid != '') {
+                var email = 'tobi.cj@segmentest.com';
+                var fullName = 'ToBi CJ';
+                analytics.identify(guid, {
+                    name: fullName,
+                    email: email
+                });
+                analytics.page();
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div class="travel-form">
+        <h2>Identify & Trigger</h2>
+        <h2>What is your favorite place to travel?</h2>
+        <p>I am building a directory of the sweetest travel destinations.</p>
+        <br><br>
+        <form name="travel" onsubmit="identify(event)">
+            <label for="destination">What is your favorite travel destination?<em>&#x2a;</em></label>
+            <input id="destination" name="destination" required="" type="text" />
+            <label for="details">Any recommendations?: <em>&#x2a;</em></label>
+            <textarea id="details" name="details" required="" rows="4"></textarea>
+            <h3>i.e cool things to do, places to visit or restaurants to eat?</h3>
+            <label for="fullname">Full Name <em>&#x2a;</em></label>
+            <input id="fullname" name="fullname" required="" type="text" />
+            <label for="email">Email <em>&#x2a;</em></label>
+            <input id="email" name="email" required="" type="email" />
+            <button id="submitForm">SUBMIT</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("addToCart").addEventListener("click", function () {
+            analytics.track('DOM AddToCart Clicked', {
+                type: 'DOM button'
+            });
+            console.log("AddToCart DOM Element Clicked");
+        });
+
+        const input = document.querySelector('input');
+        const log = document.getElementById('values');
+
+        input.addEventListener('input', updateValue);
+
+        function updateValue(e) {
+            log.textContent = e.target.value;
+        }
+    </script>
+</body>
+
+</html>
