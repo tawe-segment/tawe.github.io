@@ -1,62 +1,67 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Form Page</title> 
+<!DOCTYPE html>
+<html>
 
-    <!--Start Placeholder for Segment Snippet -->
-    <script>
-      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK";analytics.SNIPPET_VERSION="4.13.2";
-      analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK");
-      var PAGE_NAME = "Form Page"
-      // analytics.identify('TS444', {
-      //           name: 'Tobi444 Segment',
-      //           gender: 'Male',
-      //           email: 'XYZ444@segment.com',
-      //           phone: '085750',
-      //           address: {
-      //               city: 'San Francisco',
-      //               state: 'Ca',
-      //               postalCode: '94107'
-      //           },
-      //           // phoneVerified:true,
-      //           // emailVerified:true,
-      //         });
-      analytics.page(PAGE_NAME,
+<head>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>Form Page</title>
+
+  <!--Start Placeholder for Segment Snippet -->
+  <script>
+    !function () {
+      var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+        analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK"; analytics.SNIPPET_VERSION = "4.13.2";
+        analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK");
+        var PAGE_NAME = "Form Page"
+        // analytics.identify('TS444', {
+        //           name: 'Tobi444 Segment',
+        //           gender: 'Male',
+        //           email: 'XYZ444@segment.com',
+        //           phone: '085750',
+        //           address: {
+        //               city: 'San Francisco',
+        //               state: 'Ca',
+        //               postalCode: '94107'
+        //           },
+        //           // phoneVerified:true,
+        //           // emailVerified:true,
+        //         });
+        analytics.page(PAGE_NAME,
           {
-            title:PAGE_NAME //instead of html title "Load+Page() Only"
+            title: PAGE_NAME //instead of html title "Load+Page() Only"
           }
         );
-      }}();
-    </script>
-    <!--End Placeholder for Segment Snippet -->
-    <script src="//app-ab04.marketo.com/js/forms2/js/forms2.min.js">
+      }
+    }();
+  </script>
+  <!--End Placeholder for Segment Snippet -->
+  <script src="//app-ab04.marketo.com/js/forms2/js/forms2.min.js">
     console.log("1")
-    </script>
-</head> 
-<body>
-    <form id="mktoForm_11"></form>
-    <script>MktoForms2.loadForm("//app-ab04.marketo.com", "332-UOQ-444", 11,function(form) {
+  </script>
+</head>
 
-        // Add an onSubmit handler
-        form.onSubmit(function(){
+<body>
+  <form id="mktoForm_11"></form>
+  <script>MktoForms2.loadForm("//app-ab04.marketo.com", "332-UOQ-444", 11, function (form) {
+
+      // Add an onSubmit handler
+      form.onSubmit(function () {
         // Get the form field values
         var vals = form.vals();
         //call analytics.track method on submit
-        analytics.track('Marketo Form Submitted',{
-            firstName:vals.FirstName,
-            lastName:vals.LastName,
-            email:vals.Email,
+        analytics.track('Marketo Form Submitted', {
+          firstName: vals.FirstName,
+          lastName: vals.LastName,
+          email: vals.Email,
         });
-    });
-        form.onSuccess(function(values, followUpUrl) {
-            // Return false to prevent the submission handler from taking the lead to the follow up url
-            return false;
-    });
+      });
+      form.onSuccess(function (values, followUpUrl) {
+        // Return false to prevent the submission handler from taking the lead to the follow up url
+        return false;
+      });
     });
     console.log("2")
-    </script>
-    <script>
+  </script>
+  <!-- <script>
         // analytics.trackForm(form, 'Marketo Form Submitted');
         var output = {}; //empty variable array
           var qs = document.location.search.substring(1); //get query string from url
@@ -77,6 +82,7 @@
         //     lastName:results.lastname,
         //     email:results.email,
         //   });
-    </script>
-</body> 
+    </script> -->
+</body>
+
 </html>
