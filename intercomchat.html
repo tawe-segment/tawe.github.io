@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Blank Page</title>
+    <script>
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK";; analytics.SNIPPET_VERSION = "4.15.3";
+                analytics.load("kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK", { integrations: { All: false, 'Segment.io': true, 'Intercom': true } });
+            }
+        }();
+    </script>
+    <script>
+        analytics.identify('int008t', {
+            name: 'Tobi Testing',
+            email: 'tob_007@tobiordobi.com'
+        });
+
+        analytics.track("Visited Intercom Only")
+    </script>
+</head>
+
+<body>
+    <p>Just Another Page: Blank with no spec for browser console usage</p>
+
+    <script>
+        var parentElement = document.getElementById("intercom-container");
+        var chatOpen = parentElement.getElementsByClassName("intercom-14d9spn e4nbtsn3");
+        var chatClose = parentElement.getElementsByClassName("intercom-1326a87 e4nbtsn3");
+
+        document.querySelectorAll('.intercom-14d9spn e4nbtsn3').forEach(item => {
+            item.addEventListener('click', event => {
+                analytics.track("Chat Opened");
+            })
+        })
+
+        document.querySelectorAll('.intercom-1326a87 e4nbtsn3').forEach(item => {
+            item.addEventListener('click', event => {
+                analytics.track("Chat Closed");
+            })
+        })
+        // analytics.trackLink(page2_link, 'My Custom Event', {
+        //     name: 'Page 2 Clicked',
+        //     source: 'Page 1'
+        // });
+    </script>
+</body>
+
+</html>
