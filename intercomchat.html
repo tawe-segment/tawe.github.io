@@ -27,25 +27,15 @@
     <p>Just Another Page: Blank with no spec for browser console usage</p>
 
     <script>
-
-        function logClickOpen(event) {
-            analytics.track("Chat Opened");
-        }
-
-        function logClickClose(event) {
+        const openChat = document.querySelector('div[aria-label="Close Intercom Messenger"]');
+        closeChat.addEventListener("click", function () {
             analytics.track("Chat Closed");
-        }
+        });
 
-        var parentElement = document.getElementById("intercom-container");
-        var chatOpen = parentElement.getElementsByClassName("intercom-14d9spn e4nbtsn3");
-        var chatClose = parentElement.getElementsByClassName("intercom-1326a87 e4nbtsn3") ? parentElement.getElementsByClassName("intercom-1326a87 e4nbtsn3") : '';
-
-        chatOpen.addEventListener('click', logClickOpen);
-        chatClose.addEventListener('click', logClickClose);
-        // analytics.trackLink(page2_link, 'My Custom Event', {
-        //     name: 'Page 2 Clicked',
-        //     source: 'Page 1'
-        // });
+        const closeChat = document.querySelector('div[aria-label="Close Intercom Messenger"]');
+        closeChat.addEventListener("click", function () {
+            analytics.track("Chat Closed");
+        });
     </script>
 </body>
 
