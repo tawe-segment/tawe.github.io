@@ -41,6 +41,12 @@
             var cancelDialogTitle = 'Are you sure you want to cancel?'
             var cancelDialogContent =
                 'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
+            const customCategories = {
+                'Do Not Sell': {
+                    purpose: 'Prevent sale of data to third-party tools.',
+                    integrations: ['Google Universal Analytics', 'Amplitude']
+                }
+            }
 
             return {
                 container: '#target-container',
@@ -51,7 +57,8 @@
                 preferencesDialogTitle: preferencesDialogTitle,
                 preferencesDialogContent: preferencesDialogContent,
                 cancelDialogTitle: cancelDialogTitle,
-                cancelDialogContent: cancelDialogContent
+                cancelDialogContent: cancelDialogContent,
+                customCategories = customCategories
             }
         }
     </script>
