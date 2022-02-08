@@ -22,6 +22,12 @@
             var React = exports.React
             var inEU = exports.inEU
 
+            var initialPreferences = {
+                'Analytics': true,
+                'Functional': true,
+                'Targeting and Advertising': true,
+            };
+
             var bannerContent = React.createElement(
                 'span',
                 null,
@@ -41,6 +47,36 @@
             var cancelDialogTitle = 'Are you sure you want to cancel?'
             var cancelDialogContent =
                 'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
+            var customCategories = {
+                'Analytics': {
+                    integrations: [
+                        'Google Analytics',
+                        'Amplitude'
+                    ],
+                    purpose: 'Provide statistical information on site usage, e.g., web analytics so we can improve this website over time.',
+                },
+                'Functional': {
+                    integrations: [
+                        'Optimizely',
+                    ],
+                    purpose: 'Enables enhanced functionality, such as videos and live chat. If you do not allow these, then some or all of these functions may not work properly.',
+                },
+                'Targeting and Advertising': {
+                    integrations: [
+                        'Facebook Pixel',
+                        'Pinterest Tag',
+                        'DoubleClick Floodlight'
+                    ],
+                    purpose: 'Used to create profiles or personalize content to enhance your shopping experience.',
+                },
+                'Do Not Sell': {
+                    integrations: [
+                        'Google Analytics',
+                        'Amplitude'
+                    ],
+                    purpose: 'Prevent sale of data to third party tools.',
+                },
+            };
 
             return {
                 container: '#target-container',
@@ -51,7 +87,9 @@
                 preferencesDialogTitle: preferencesDialogTitle,
                 preferencesDialogContent: preferencesDialogContent,
                 cancelDialogTitle: cancelDialogTitle,
-                cancelDialogContent: cancelDialogContent
+                cancelDialogContent: cancelDialogContent,
+                initialPreferences: initialPreferences,
+                customCategories: customCategories
             }
         }
     </script>
