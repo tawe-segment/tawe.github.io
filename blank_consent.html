@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <!--loads consentManagerConfig object and specifies content popup contains.-->
+    <script>
+        window.consentManagerConfig = function (exports) {
+            return {
+                //Need to update with the container where you want Consent Manager to load
+                container: '#target-container',
+                //Need to update with you 
+                writeKey: 'zJIP5G2WZd1hyUcSSzLY5o51aloE3Slu',
+                bannerContent:
+                    'Consent manager is awesome! We use cookies (and other similar technologies) to collect data to improve your experience on our site. Also, Segment is Awesome',
+                bannerSubContent: 'You can change your preferences at any time.',
+                preferencesDialogTitle: 'Website Data Collection Preferences',
+                preferencesDialogContent:
+                    'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.',
+                cancelDialogTitle: 'Are you sure you want to cancel?',
+                cancelDialogContent:
+                    'Your preferences have not been saved. By continuing to use our website, you are agreeing to our Website Data Collection Policy',
+                closeBehavior: 'accept',
+            }
+        };
+
+    </script>
+
+    <!--script that loads Prebuilt Consent Manager UI via Preact-->
+    <script src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"> </script>
+    </script>
+
+    <!--analytics.js script -->
+    <script>
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e };; analytics.SNIPPET_VERSION = "4.15.3";
+                // analytics.load("zJIP5G2WZd1hyUcSSzLY5o51aloE3Slu");
+                analytics.page()
+            }
+        }();
+    </script>
+</head>
+
+<body>
+    <p>Just Another Page: Blank with consent manager - Standalone Script</p>
+</body>
+
+</html>
