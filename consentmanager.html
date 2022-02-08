@@ -42,6 +42,13 @@
             var cancelDialogContent =
                 'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
 
+            const customCategories = {
+                'New Category': {
+                    purpose: 'A new consent category to capture more granular consent groupings',
+                    integrations: ['Google Adwords (Classic)', 'Amplitude', 'Slack']
+                }
+            }
+
             return {
                 container: '#target-container',
                 writeKey: 'kxu54FZnPqGFfWYgOhHB4yMfph1ZWSWK',
@@ -51,7 +58,8 @@
                 preferencesDialogTitle: preferencesDialogTitle,
                 preferencesDialogContent: preferencesDialogContent,
                 cancelDialogTitle: cancelDialogTitle,
-                cancelDialogContent: cancelDialogContent
+                cancelDialogContent: cancelDialogContent,
+                customCategories: customCategories
             }
         }
     </script>
