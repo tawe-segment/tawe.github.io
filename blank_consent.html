@@ -2,59 +2,109 @@
 <html>
 
 <head>
-    <style>
-        #target-container {
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 100;
-        }
-    </style>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
 
-    <!--loads consentManagerConfig object and specifies content popup contains.-->
-    <script>
-        window.consentManagerConfig = function (exports) {
-            return {
-                //Need to update with the container where you want Consent Manager to load
-                container: '#target-container',
-                //Need to update with you 
-                writeKey: 'zJIP5G2WZd1hyUcSSzLY5o51aloE3Slu',
-                bannerContent:
-                    'Consent manager is awesome! We use cookies (and other similar technologies) to collect data to improve your experience on our site. Also, Segment is Awesome',
-                bannerSubContent: 'You can change your preferences at any time.',
-                preferencesDialogTitle: 'Website Data Collection Preferences',
-                preferencesDialogContent:
-                    'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.',
-                cancelDialogTitle: 'Are you sure you want to cancel?',
-                cancelDialogContent:
-                    'Your preferences have not been saved. By continuing to use our website, you are agreeing to our Website Data Collection Policy',
-                closeBehavior: 'accept',
-            }
-        };
+    <div id="target-container"></div>
 
-    </script>
+    <title>Home Questionnaire<span id="selection-marker-1" class="redactor-selection-marker"></span></title>
 
-    <!--script that loads Prebuilt Consent Manager UI via Preact-->
-    <script src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"> </script>
-    </script>
 
-    <!--analytics.js script -->
+    <!-- SEGMENT-->
     <script>
         !function () {
             var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
-                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e };; analytics.SNIPPET_VERSION = "4.15.3";
-                // analytics.load("zJIP5G2WZd1hyUcSSzLY5o51aloE3Slu");
-                analytics.page()
+                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on"]; analytics.factory = function (t) { return function () { var e = Array.prototype.slice.call(arguments); e.unshift(t); analytics.push(e); return analytics } }; for (var t = 0; t < analytics.methods.length; t++) { var e = analytics.methods[t]; analytics[e] = analytics.factory(e) } analytics.load = function (t, e) { var n = document.createElement("script"); n.type = "text/javascript"; n.async = !0; n.src = "https://cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js"; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(n, a); analytics._loadOptions = e }; analytics.SNIPPET_VERSION = "4.15.3";
+                analytics.page();
             }
         }();
     </script>
+    <!-- SEGMENT-->
+
+    <script>
+        window.consentManagerConfig = function (exports) {
+            var React = exports.React
+            var inEU = exports.inEU
+
+            var bannerContent = React.createElement(
+                'span',
+                null,
+                'We use cookies (and other similar technologies) to collect data to improve your experience on our site. By using our website, you՚re agreeing to the collection of data as described in our',
+                ' ',
+                React.createElement(
+                    'a',
+                    { href: '/docs/legal/website-data-collection-policy/', target: '_blank' },
+                    'Website Data Collection Policy'
+                ),
+                '.'
+            )
+            var bannerSubContent = 'You can change your preferences at any time.'
+            var preferencesDialogTitle = 'Website Data Collection Preferences'
+            var preferencesDialogContent =
+                'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.'
+            var cancelDialogTitle = 'Are you sure you want to cancel?'
+            var cancelDialogContent =
+                'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
+
+            return {
+                container: '#target-container',
+                writeKey: 'zJIP5G2WZd1hyUcSSzLY5o51aloE3Slu',
+                shouldRequireConsent: inEU,
+                bannerContent: bannerContent,
+                bannerSubContent: bannerSubContent,
+                preferencesDialogTitle: preferencesDialogTitle,
+                preferencesDialogContent: preferencesDialogContent,
+                cancelDialogTitle: cancelDialogTitle,
+                cancelDialogContent: cancelDialogContent
+            }
+        }
+    </script>
+
+    <script src="https://unpkg.com/@segment/consent-manager@4.5.1/standalone/consent-manager.js" defer></script>
+
 </head>
 
 <body>
-    <p>Just Another Page: Blank with consent manager - Standalone Script</p>
-    <div id="target-container"></div>
+
+    <h1>What is your favorite place to travel?</h1>
+    <p>I am building a directory of the sweetest travel destinations.</p>
+    <form name="travel" onsubmit="identify(event)">
+        What is your favorite travel destination?
+        <input name="destination" required="" size="81" type="text" />
+        <br><br><br>
+        Any recommendations (cool things to do, places to visit or restaurants to eat)?
+        <br><br>
+        <textarea cols="81" name="details" required="" rows="10">
+    </textarea>
+        <br><br>
+        Name: <input name="fullname" required="" size="75" type="text" />
+        <br><br>
+        Email: <input name="email" required="" size="75" type="email" />
+        <br><br>
+        <input name="submit" type="submit" value="submit" />
+    </form>
+    <script type="text/javascript">
+        function identify(e) {
+            e.preventDefault();
+            var form = e.target;
+            var email = form["email"].value;
+            var fullname = form["fullname"].value;
+            var destination = form["destination"].value;
+            var details = form["details"].value;
+            var user = {
+                email: email,
+                name: fullname,
+                destination: destination,
+                details: details
+            };
+            analytics.identify('1234', {
+                email: email,
+                name: fullname
+            });
+            analytics.track('destination submitted', user, function () {
+                window.location.href = "";
+            });
+        }
+    </script>
+
 </body>
 
 </html>
