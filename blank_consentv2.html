@@ -79,7 +79,13 @@
                 cancelDialogContent:
                     "Your preferences have not been saved. By continuing to use our website, you're agreeing to our Website Data Collection Policy",
                 closeBehavior: 'accept',
-                shouldRequireConsent: exports.inEU
+                shouldRequireConsent: exports.inEU,
+                customCategories: {
+                    'New Category': {
+                        purpose: 'A new consent category to capture more granular consent groupings',
+                        integrations: ['Amplitude']
+                    }
+                },
             }
         }
     </script>
