@@ -24,6 +24,7 @@
                         post_title = post.title
                     });
                 payload.obj.properties.post_title = post_title;
+                delete payload.obj.userId;
                 next(payload);
             }
             analytics.addDestinationMiddleware('Amplitude', [ampMW1]);
