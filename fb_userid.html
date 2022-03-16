@@ -12,7 +12,9 @@
                 analytics.reset(); //clear ajs cookies
                 analytics.identify("fb1234");
                 analytics.page("FB With UserId");
-                analytics.track("signupAuthSuccess");
+                analytics.identify('fb1234', function () {
+                    analytics.track("signupAuthSuccess");
+                });
             }
         }();
     </script>
