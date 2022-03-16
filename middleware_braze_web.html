@@ -13,57 +13,74 @@
         }();
     </script>
     <script>
-        //MW function signature
-        var brazeMW1 = async function ({ payload, next, integration }) {
-            console.log(payload)
-
-            //check if the event triggered is "Order Completed" 
-            if (payload.obj.event === 'Order Completed') {
+        function destMW() {
+            //MW function signature
+            var destMW1 = async function ({ payload, next, integration }) {
                 console.log(payload)
-                next(payload); //if so, deliver the payload, anything else apart from above is dropped
-            }
-        }
-        //add / activate the middleware for the destination
-        analytics.addDestinationMiddleware('Braze Web Device Mode (Actions)', [brazeMW1]);
 
-        analytics.track('Order Completed', {
-            checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
-            order_id: '50314b8e9bcf000000000000',
-            affiliation: 'Google Store',
-            total: 27.50,
-            subtotal: 22.50,
-            revenue: 25.00,
-            shipping: 3,
-            tax: 2,
-            discount: 2.5,
-            coupon: 'hasbros',
-            currency: 'USD',
-            products: [
-                {
-                    product_id: '507f1f77bcf86cd799439011',
-                    sku: '45790-32',
-                    name: 'Monopoly: 3rd Edition',
-                    price: 19,
-                    quantity: 1,
-                    category: 'Games',
-                    url: 'https://www.example.com/product/path',
-                    image_url: 'https:///www.example.com/product/path.jpg'
-                },
-                {
-                    product_id: '505bd76785ebb509fc183733',
-                    sku: '46493-32',
-                    name: 'Uno Card Game',
-                    price: 3,
-                    quantity: 2,
-                    category: 'Games'
+                //truthy if the event triggered is "Some Specific Event" 
+                if (payload.obj.event === "Some Specific Event") {
+                    next(payload); //if so, deliver the payload, anything else apart from above is dropped
                 }
-            ]
-        });
+            }
+            //add / activate the middleware for the destination
+            analytics.addDestinationMiddleware('Facebook Pixel', [destMW1]);
+
+            //should not be sent to FB Pixel
+            analytics.track('Product Viewed', {
+                product_id: "123456",
+                category: "xyz",
+                name: "Test Title",
+                content_name: "Test title",
+                brand: "TobiTest",
+                price: 35.00,
+                quantity: "1",
+                currency: "USD",
+                value: 35.00,
+            });
+
+            //should be sent to FB Pixel
+            analytics.track('Some Specific Event', {
+                checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
+                order_id: '50314b8e9bcf000000000000',
+                affiliation: 'Google Store',
+                total: 27.50,
+                subtotal: 22.50,
+                revenue: 25.00,
+                shipping: 3,
+                tax: 2,
+                discount: 2.5,
+                coupon: 'hasbros',
+                currency: 'USD',
+                products: [
+                    {
+                        product_id: '507f1f77bcf86cd799439011',
+                        sku: '45790-32',
+                        name: 'Monopoly: 3rd Edition',
+                        price: 19,
+                        quantity: 1,
+                        category: 'Games',
+                        url: 'https://www.example.com/product/path',
+                        image_url: 'https:///www.example.com/product/path.jpg'
+                    },
+                    {
+                        product_id: '505bd76785ebb509fc183733',
+                        sku: '46493-32',
+                        name: 'Uno Card Game',
+                        price: 3,
+                        quantity: 2,
+                        category: 'Games'
+                    }
+                ]
+            });
+
+        }
     </script>
 </head>
 
 <body>
-    <p>Just Another Page: Conditional event middleware Braze web test
+    <p>Just Another Page: Conditional event middleware
+        <input type="button" class="idBtn" onclick="destMW()" value="MW Event">
     </p>
 </body>
 
