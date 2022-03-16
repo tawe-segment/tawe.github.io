@@ -16,11 +16,12 @@
         function brazeMW() {
             //MW function signature
             var brazeMW1 = async function ({ payload, next, integration }) {
+                console.log(payload)
 
                 //check if the event triggered is "Order Completed" 
                 if (payload.obj.event === "Order Completed") {
-                    console.log(payload)
-                    // next(payload); //if so, deliver the payload, anything else apart from above is dropped
+                    // console.log(payload)
+                    next(payload); //if so, deliver the payload, anything else apart from above is dropped
                 }
             }
             //add / activate the middleware for the destination
